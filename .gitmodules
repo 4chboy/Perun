@@ -1,0 +1,3 @@
+[submodule "Perun/SvarogLang/dep/spdlog"]
+	path = Perun/SvarogLang/dep/spdlog
+	url = https://github.com/4chboy/spdlog.git
