@@ -9,9 +9,11 @@
 namespace svarog {
 
     class SVAROGLANG_API LoggerException final : public Exception {
-    public:
+    protected:
+        friend class LoggerHub;
+
         explicit LoggerException(std::string loggerName);
-        SVAROGLANG_NODISCARD std::string GetMessage() const;
+        SVAROGLANG_NODISCARD std::string GetErrorMessage() const override;
 
     private:
         std::string uninitializedLoggerName;
@@ -23,9 +25,9 @@ namespace svarog {
     using LoggerPtr   = std::shared_ptr<spdlog::logger>;
 
     struct SVAROGLANG_API SinkData final {
-        SinkPtr sink;
-        std::string pattern;
-        LogLevel level;
+        SinkPtr pSink;
+        std::string szPattern;
+        LogLevel eLevel;
     };
 
     class SVAROGLANG_API LoggerHub final {
@@ -34,7 +36,7 @@ namespace svarog {
         SVAROGLANG_NODISCARD static LoggerPtr& GetLogger(const std::string& loggerName) noexcept;
 
     private:
-        static std::map<std::string, LoggerPtr> loggers;
+        static std::map<std::string, LoggerPtr> s_mapLoggers;
     };
 }
 

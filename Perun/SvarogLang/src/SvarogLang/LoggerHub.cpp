@@ -9,27 +9,27 @@ namespace svarog {
     LoggerException::LoggerException(std::string loggerName)
         : uninitializedLoggerName{ std::move(loggerName) } { }
 
-    SVAROGLANG_NODISCARD std::string LoggerException::GetMessage() const {
+    SVAROGLANG_NODISCARD std::string LoggerException::GetErrorMessage() const {
         return "Logger Exception: Attempt to use uninitialized logger " + uninitializedLoggerName;
     }
 
     void LoggerHub::InitLogger(const std::string& loggerName, const SinkData& data) {
-        auto& logSink = data.sink;
-        logSink->set_pattern(data.pattern);
-        auto logLevel = data.level;
+        auto& logSink = data.pSink;
+        logSink->set_pattern(data.szPattern);
+        auto logLevel = data.eLevel;
         auto logger = std::make_shared<spdlog::logger>(loggerName, logSink);
         spdlog::register_logger(logger);
         logger->set_level(logLevel);
         logger->flush_on(logLevel);
-        loggers[loggerName] = std::move(logger);
+        s_mapLoggers[loggerName] = std::move(logger);
     }
 
     SVAROGLANG_NODISCARD LoggerPtr& LoggerHub::GetLogger(const std::string& loggerName) noexcept {
-        if (const auto& loggerIter = loggers.find(loggerName); loggerIter != loggers.end()) {
+        if (const auto& loggerIter = s_mapLoggers.find(loggerName); loggerIter != s_mapLoggers.end()) {
             return loggerIter->second;
         }
 
-        return loggers["Svarog"];
+        throw LoggerException{ loggerName };
     }
 
     SVAROGLANG_NODISCARD static LoggerPtr CreateDefaultLogger() {
@@ -45,5 +45,5 @@ namespace svarog {
         svarogLogger->flush_on(LogLevel::info);
     }
 
-    std::map<std::string, LoggerPtr> LoggerHub::loggers = { { "Svarog", std::move(CreateDefaultLogger()) } };
+    std::map<std::string, LoggerPtr> LoggerHub::s_mapLoggers = { { "Svarog", CreateDefaultLogger() } };
 }

@@ -1,0 +1,31 @@
+import MonoBehaviour;
+import Math.*;
+
+class Player extends MonoBehaviour {
+    var forcePower;
+    var mass;
+
+    [Token: FUNCTION]function [Token: IDENTIFIER]OnCreate(this)
+        [Token: OVERRIDE]override [Token: CURLY_LEFT_BRACKET]{
+        [Token: IDENTIFIER]forcePower [Token: ASSIGN]= [Token: INTEGER_CONSTANT]10[Token: SEMICOLON];
+        [Token: IDENTIFIER]mass [Token: ASSIGN]= [Token: FLOATING_CONSTANT]5.0[Token: SEMICOLON];
+    [Token: CURLY_RIGHT_BRACKET]}
+
+    function OnUpdate(this, deltaTime) override {
+        ref rigidBody = this.GetComponent<RigidBody>();
+        if (rigidBody != null) {
+            ref acceleration = rigidBody.GetAcceleration();
+            ref velocity = rigidBody.GetVelocity();
+            ref position = this.GetComponent<Transform>().GetPosition();
+
+            var force = Input.GetMouseCoords().Normalize() * forcePower;
+
+            acceleration = force / mass;
+            velocity += acceleration * deltaTime;
+            position += velocity * deltaTime;
+        }
+        else {
+            Print('RigidBody component is missing');
+        }
+    }
+}

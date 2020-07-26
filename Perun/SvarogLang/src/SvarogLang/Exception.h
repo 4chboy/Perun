@@ -3,11 +3,10 @@
 
 namespace svarog {
 
-    class Exception {
+    class Exception : public std::exception {
     public:
-        virtual ~Exception() = default;
-
-        SVAROGLANG_NODISCARD virtual std::string GetMessage() const;
+        SVAROGLANG_NODISCARD virtual std::string GetErrorMessage() const;
+        SVAROGLANG_NODISCARD const char* what() const noexcept override;
     };
 }
 
