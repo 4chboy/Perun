@@ -1,6 +1,0 @@
-#ifndef _PERUNENGINE_SHAPE_H
-#define _PERUNENGINE_SHAPE_H
-
-
-
-#endif //_PERUNENGINE_SHAPE_H
