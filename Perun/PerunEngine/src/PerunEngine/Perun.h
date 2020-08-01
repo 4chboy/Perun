@@ -9,4 +9,7 @@
 
 #include "Core/Window.h"
 
+#include "Core/Application.h"
+#include "Core/EntryPoint.h"
+
 #endif //_PERUNENGINE_H

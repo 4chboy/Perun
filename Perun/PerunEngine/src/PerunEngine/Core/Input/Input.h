@@ -5,7 +5,7 @@
 
 namespace perun {
 
-    class Input {
+    class PERUNENGINE_API Input {
     public:
         virtual ~Input() noexcept = default;
 
@@ -31,12 +31,16 @@ namespace perun {
         }
 
     protected:
-        static std::unique_ptr<Input> instance;
+        Input() noexcept = default;
 
         [[nodiscard]] virtual bool IsKeyDownImpl(KeyCode key) const noexcept = 0;
         [[nodiscard]] virtual bool IsKeyOnImpl(KeyCode key) const noexcept = 0;
         [[nodiscard]] virtual bool IsMouseButtonDownImpl(MouseCode button) const noexcept = 0;
         [[nodiscard]] virtual std::pair<float, float> GetMousePosImpl() const noexcept = 0;
+
+    private:
+        static std::unique_ptr<Input> Create();
+        inline static std::unique_ptr<Input> instance = Create();
     };
 }
 

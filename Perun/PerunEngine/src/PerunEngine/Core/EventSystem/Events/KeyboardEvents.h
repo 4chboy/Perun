@@ -7,7 +7,7 @@
 
 namespace perun {
 
-    class KeyEvent : public Event {
+    class PERUNENGINE_API KeyEvent : public Event {
     public:
         KeyCode keyCode;
 
@@ -17,7 +17,7 @@ namespace perun {
             keyCode{ keyCode } { }
     };
 
-    class KeyPressedEvent final : public KeyEvent {
+    class PERUNENGINE_API KeyPressedEvent final : public KeyEvent {
     public:
         KeyPressedEvent(KeyCode keyCode, int32_t numOfRepeats) noexcept :
             KeyEvent{ EventType::KeyPressed, keyCode },
@@ -26,13 +26,13 @@ namespace perun {
         int32_t numOfRepeats;
     };
 
-    class KeyReleasedEvent final : public KeyEvent {
+    class PERUNENGINE_API KeyReleasedEvent final : public KeyEvent {
     public:
         explicit KeyReleasedEvent(KeyCode keyCode) noexcept :
             KeyEvent{ EventType::KeyReleased, keyCode } { }
     };
 
-    class KeyTypedEvent final : public KeyEvent {
+    class PERUNENGINE_API KeyTypedEvent final : public KeyEvent {
     public:
         explicit KeyTypedEvent(KeyCode keyCode) noexcept :
             KeyEvent{ EventType::KeyTyped, keyCode } { }

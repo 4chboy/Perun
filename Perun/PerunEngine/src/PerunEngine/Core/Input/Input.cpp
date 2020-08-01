@@ -4,9 +4,11 @@
 
 namespace perun {
 
+    std::unique_ptr<Input> Input::Create() {
 #if defined(PERUNENGINE_OS_WINDOWS)
-    std::unique_ptr<Input> Input::instance = std::make_unique<WindowsInput>();
+        return std::make_unique<WindowsInput>();
 #else
-    std::unique_ptr<Input> Input::instance = nullptr;
+        return nullptr;
 #endif
+    }
 }

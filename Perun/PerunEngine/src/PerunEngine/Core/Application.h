@@ -4,7 +4,7 @@
 
 namespace perun {
 
-    class Application {
+    class PERUNENGINE_API Application {
     public:
         virtual ~Application() = default;
 
