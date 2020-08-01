@@ -13,6 +13,8 @@ namespace perun {
         if (Input::IsKeyDown(KeyCode::A)) {
             std::cout << "A key is down" << std::endl;
         }
+        window->Update();
+        window->GetEventSystem().Dispatch(true);
     }
 
     bool PerunEditorApplication::ShouldClose() const {
