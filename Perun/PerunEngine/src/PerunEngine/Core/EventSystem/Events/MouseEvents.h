@@ -29,6 +29,12 @@ namespace perun {
             MouseButtonEvent{ EventType::MouseButtonReleased, button } { }
     };
 
+    class PERUNENGINE_API MouseButtonDoubleClickedEvent final : public MouseButtonEvent {
+    public:
+        explicit MouseButtonDoubleClickedEvent(MouseCode button) noexcept :
+                MouseButtonEvent{ EventType::MouseButtonDoubleClicked, button } { }
+    };
+
     class PERUNENGINE_API MouseMovedEvent final : public Event {
     public:
         MouseMovedEvent(float x, float y) noexcept :

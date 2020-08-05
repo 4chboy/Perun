@@ -38,9 +38,15 @@ namespace perun {
             Event{ EventType::WindowLostFocus, EventCategory::Window } { }
     };
 
-    class PERUNENGINE_API WindowClosedFocusEvent final : public Event {
+    class PERUNENGINE_API WindowCreatedEvent final : public Event {
     public:
-        WindowClosedFocusEvent() noexcept :
+        WindowCreatedEvent() noexcept :
+            Event{ EventType::WindowCreated, EventCategory::Window } { }
+    };
+
+    class PERUNENGINE_API WindowClosedEvent final : public Event {
+    public:
+        WindowClosedEvent() noexcept :
             Event{ EventType::WindowClosed, EventCategory::Window } { }
     };
 

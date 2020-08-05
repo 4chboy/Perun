@@ -1,9 +1,14 @@
 #ifndef _PERUNENGINE_PCH_H
 #define _PERUNENGINE_PCH_H
 
+#include <fstream>
+#include <sstream>
+
 #include <cstdint>
 #include <memory>
 #include <functional>
+#include <thread>
+#include <atomic>
 
 #include <string>
 #include <array>
@@ -15,17 +20,15 @@
 #include <deque>
 #include <stack>
 
-#include <Windows.h>
-#include <Windowsx.h>
+#include "Definitions.h"
 
 #ifdef PERUNENGINE_OS_WINDOWS
-    #ifdef PERUNENGINE_BUILD_DLL
-        #define PERUNENGINE_API __declspec(dllexport)
-    #else
-        #define PERUNENGINE_API __declspec(dllimport)
-    #endif
+    #include <Windows.h>
+    #include <Windowsx.h>
+    #include <WinGdi.h>
+    #include <glad/wgl.h>
 #else
-    #define PERUNENGINE_API
+    #include <glad/gl.h>
 #endif
 
 #endif //_PERUNENGINE_PCH_H

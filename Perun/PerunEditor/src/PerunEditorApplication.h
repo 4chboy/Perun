@@ -7,5 +7,10 @@ namespace perun {
         void Start() override;
         void Run() override;
         [[nodiscard]] bool ShouldClose() const override;
+
+    private:
+        std::unique_ptr<Window> window;
+        std::unique_ptr<GraphicsContext> context;
+        std::unique_ptr<GraphicsAPI> api;
     };
 }

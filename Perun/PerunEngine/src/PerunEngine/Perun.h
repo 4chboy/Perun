@@ -9,6 +9,9 @@
 
 #include "Core/Window.h"
 
+#include "GFX/GraphicsContext.h"
+#include "GFX/GraphicsAPI.h"
+
 #include "Core/Application.h"
 #include "Core/EntryPoint.h"
 
