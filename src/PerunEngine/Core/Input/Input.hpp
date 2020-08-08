@@ -3,30 +3,37 @@
 #include "KeyCodes.hpp"
 #include "MouseCodes.hpp"
 
-namespace perun {
-
-    class PERUNENGINE_API Input {
+namespace perun
+{
+    class PERUNENGINE_API Input
+    {
     public:
         virtual ~Input() noexcept = default;
 
-        [[nodiscard]] static bool IsKeyDown(KeyCode key) noexcept {
+        [[nodiscard]] static bool IsKeyDown(KeyCode key) noexcept
+        {
             return instance->IsKeyDownImpl(key);
         }
-        [[nodiscard]] static bool IsKeyOn(KeyCode key) noexcept {
+        [[nodiscard]] static bool IsKeyOn(KeyCode key) noexcept
+        {
             return instance->IsKeyOnImpl(key);
         }
-        [[nodiscard]] static bool IsMouseButtonDown(MouseCode button) noexcept {
+        [[nodiscard]] static bool IsMouseButtonDown(MouseCode button) noexcept
+        {
             return instance->IsMouseButtonDownImpl(button);
         }
-        [[nodiscard]] static std::pair<float, float> GetMousePos() noexcept {
+        [[nodiscard]] static std::pair<float, float> GetMousePos() noexcept
+        {
             return instance->GetMousePosImpl();
         }
-        [[nodiscard]] static float GetMousePosX() noexcept {
-            auto [ x, y ] = GetMousePos();
+        [[nodiscard]] static float GetMousePosX() noexcept
+        {
+            auto [x, y] = GetMousePos();
             return x;
         }
-        [[nodiscard]] static float GetMousePosY() noexcept {
-            auto [ x, y ] = GetMousePos();
+        [[nodiscard]] static float GetMousePosY() noexcept
+        {
+            auto [x, y] = GetMousePos();
             return y;
         }
 
@@ -42,6 +49,6 @@ namespace perun {
         static std::unique_ptr<Input> Create();
         inline static std::unique_ptr<Input> instance = Create();
     };
-}
+} // namespace perun
 
 #endif //_PERUNENGINE_INPUT_H

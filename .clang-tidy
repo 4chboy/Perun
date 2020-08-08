@@ -1,0 +1,21 @@
+---
+Checks: >-
+  -*,
+  android-*,
+  boost-*,
+  bugprone-*,
+  cert-*,
+  cppcoreguidelines-*,
+  clang-analyzer-*,
+  hicpp-*,
+  misc-*,
+  modernize-*,
+  objc-*,
+  performance-*,
+  portability-*,
+  readability-*,
+FormatStyle:     file
+CheckOptions:
+  - key:             bugprone-assert-side-effect.AssertMacros
+    value:           'assert'
+...

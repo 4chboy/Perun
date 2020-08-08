@@ -2,9 +2,10 @@
 #define _PERUNENGINE_APPLICATION_H
 #include "Window.hpp"
 
-namespace perun {
-
-    class PERUNENGINE_API Application {
+namespace perun
+{
+    class PERUNENGINE_API Application
+    {
     public:
         virtual ~Application() = default;
 
@@ -19,6 +20,6 @@ namespace perun {
     };
 
     std::unique_ptr<Application> CreateApplication();
-}
+} // namespace perun
 
 #endif //_PERUNENGINE_APPLICATION_H

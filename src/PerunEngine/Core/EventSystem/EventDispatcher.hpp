@@ -2,14 +2,18 @@
 #define _PERUNENGINE_EVENT_DISPATCHER_H
 #include "PerunEngine/Core/EventSystem/Events/Event.hpp"
 
-namespace perun {
-
-    class PERUNENGINE_API EventDispatcher final {
+namespace perun
+{
+    class PERUNENGINE_API EventDispatcher final
+    {
     public:
-        explicit EventDispatcher(Event& eventToDispatch) noexcept :
-            event{ eventToDispatch } { }
+        explicit EventDispatcher(Event& eventToDispatch) noexcept
+            : event{eventToDispatch}
+        {
+        }
 
-        [[nodiscard]] bool Dispatch(const std::function<bool(Event&)>& dispatchFn, EventType eventType) noexcept {
+        [[nodiscard]] bool Dispatch(const std::function<bool(Event&)>& dispatchFn, EventType eventType) noexcept
+        {
             if (event.GetType() == eventType) {
                 event.handled = dispatchFn(event);
                 return true;
@@ -20,6 +24,6 @@ namespace perun {
     private:
         Event& event;
     };
-}
+} // namespace perun
 
 #endif //_PERUNENGINE_EVENT_DISPATCHER_H
