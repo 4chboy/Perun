@@ -5,7 +5,7 @@ namespace perun {
 
     class GraphicsAPI;
 
-    class Texture {
+    class PERUNENGINE_API Texture {
     public:
         virtual ~Texture();
 

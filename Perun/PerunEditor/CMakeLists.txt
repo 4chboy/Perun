@@ -22,8 +22,9 @@ target_precompile_headers(PerunEditor PUBLIC
         )
 target_include_directories(PerunEditor PUBLIC
         ../PerunEngine/src
-        ../PerunEngine/dep/glad/include
         ../PerunEngine/dep/glm/glm
+        ../PerunEngine/dep/glad/include
+        ../PerunEngine/dep/stb/include
         )
 
 if (WIN32)

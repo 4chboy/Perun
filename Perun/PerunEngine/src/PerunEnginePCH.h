@@ -4,6 +4,7 @@
 #include <fstream>
 #include <sstream>
 
+#include <cstring>
 #include <cstdint>
 #include <memory>
 #include <functional>
@@ -20,15 +21,8 @@
 #include <deque>
 #include <stack>
 
-#include "Definitions.h"
+#include <glad/gl.h>
 
-#ifdef PERUNENGINE_OS_WINDOWS
-    #include <Windows.h>
-    #include <Windowsx.h>
-    #include <WinGdi.h>
-    #include <glad/wgl.h>
-#else
-    #include <glad/gl.h>
-#endif
+#include "Definitions.h"
 
 #endif //_PERUNENGINE_PCH_H

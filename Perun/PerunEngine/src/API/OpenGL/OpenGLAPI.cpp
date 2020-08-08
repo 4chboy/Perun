@@ -32,21 +32,6 @@ namespace perun {
         glContext.BlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     }
 
-    uint32_t OpenGLAPI::GenerateTexture(const std::unique_ptr<Texture>& texture) const {
-        uint32_t id;
-        auto& glContext = PERUNENGINE_GET_GLCONTEXT(context);
-        glContext.CreateTextures(GL_TEXTURE_2D, 1, &id);
-        glContext.BindTexture(GL_TEXTURE_2D, id);
-        glContext.TexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-        glContext.TexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-        glContext.TexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-        glContext.TexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-        glContext.TexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texture->GetWidth(), texture->GetHeight(),
-                0, GL_RGBA, GL_UNSIGNED_BYTE, reinterpret_cast<const void*>(texture->GetData()));
-        glContext.GenerateMipmap(GL_TEXTURE_2D);
-        return id;
-    }
-
     [[nodiscard]] uint32_t OpenGLAPI::GenerateTexture(uint32_t width, uint32_t height, const uint8_t* data) const {
         uint32_t id;
         auto& glContext = PERUNENGINE_GET_GLCONTEXT(context);
@@ -128,12 +113,12 @@ namespace perun {
             GLchar infoLog[infoLogLength];
             glContext.GetShaderInfoLog(shaderId, infoLogLength, nullptr, infoLog);
         }
-        
+
         return shaderId;
     }
 
     int32_t OpenGLAPI::GetUniformLocation(uint32_t programId, const std::string& uniformName) const {
         auto& glContext = PERUNENGINE_GET_GLCONTEXT(context);
-        glContext.GetUniformLocation(programId, uniformName.c_str());
+        return glContext.GetUniformLocation(programId, uniformName.c_str());
     }
 }

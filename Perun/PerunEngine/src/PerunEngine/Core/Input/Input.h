@@ -9,38 +9,16 @@ namespace perun {
     public:
         virtual ~Input() noexcept = default;
 
-        [[nodiscard]] static bool IsKeyDown(KeyCode key) noexcept {
-            return instance->IsKeyDownImpl(key);
-        }
-        [[nodiscard]] static bool IsKeyOn(KeyCode key) noexcept {
-            return instance->IsKeyOnImpl(key);
-        }
-        [[nodiscard]] static bool IsMouseButtonDown(MouseCode button) noexcept {
-            return instance->IsMouseButtonDownImpl(button);
-        }
-        [[nodiscard]] static std::pair<float, float> GetMousePos() noexcept {
-            return instance->GetMousePosImpl();
-        }
-        [[nodiscard]] static float GetMousePosX() noexcept {
-            auto [ x, y ] = GetMousePos();
-            return x;
-        }
-        [[nodiscard]] static float GetMousePosY() noexcept {
-            auto [ x, y ] = GetMousePos();
-            return y;
-        }
+        [[nodiscard]] virtual bool IsKeyDown(KeyCode key) const noexcept = 0;
+        [[nodiscard]] inline bool IsKeyUp(KeyCode key) const noexcept { return !IsKeyDown(key); }
+        [[nodiscard]] virtual bool IsMouseButtonDown(MouseCode button) const noexcept = 0;
+        [[nodiscard]] inline bool IsMouseButtonUp(MouseCode button) const noexcept { return !IsMouseButtonDown(button); }
+        [[nodiscard]] virtual std::pair<float, float> GetMousePos() const noexcept = 0;
+        [[nodiscard]] inline float GetMousePosX() const noexcept { return GetMousePos().first;  }
+        [[nodiscard]] inline float GetMousePosY() const noexcept { return GetMousePos().second; }
 
     protected:
         Input() noexcept = default;
-
-        [[nodiscard]] virtual bool IsKeyDownImpl(KeyCode key) const noexcept = 0;
-        [[nodiscard]] virtual bool IsKeyOnImpl(KeyCode key) const noexcept = 0;
-        [[nodiscard]] virtual bool IsMouseButtonDownImpl(MouseCode button) const noexcept = 0;
-        [[nodiscard]] virtual std::pair<float, float> GetMousePosImpl() const noexcept = 0;
-
-    private:
-        static std::unique_ptr<Input> Create();
-        inline static std::unique_ptr<Input> instance = Create();
     };
 }
 

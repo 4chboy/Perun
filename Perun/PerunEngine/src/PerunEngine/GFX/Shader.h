@@ -16,7 +16,7 @@ namespace perun {
         ShaderType type;
     };
 
-    class ShaderProgram {
+    class PERUNENGINE_API ShaderProgram {
     public:
         virtual ~ShaderProgram();
 
