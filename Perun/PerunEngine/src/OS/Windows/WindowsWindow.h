@@ -3,7 +3,7 @@
 #include "PerunEngine/Core/Window.h"
 
 typedef struct HWND__ *HWND;
- 
+
 namespace perun {
 
     class WindowsWindow final : public Window {
