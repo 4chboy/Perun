@@ -2,7 +2,7 @@
 #define _PERUNENGINE_WINDOW_EVENTS_H
 #include <cstdint>
 
-#include "Event.h"
+#include "Event.hpp"
 
 namespace perun {
 

@@ -1,9 +1,9 @@
-#include "PerunEnginePCH.h"
-#include "WindowsWindow.h"
+#include "PerunEnginePCH.hpp"
+#include "WindowsWindow.hpp"
 
-#include "PerunEngine/Core/EventSystem/Events/KeyboardEvents.h"
-#include "PerunEngine/Core/EventSystem/Events/MouseEvents.h"
-#include "PerunEngine/Core/EventSystem/Events/WindowEvents.h"
+#include "PerunEngine/Core/EventSystem/Events/KeyboardEvents.hpp"
+#include "PerunEngine/Core/EventSystem/Events/MouseEvents.hpp"
+#include "PerunEngine/Core/EventSystem/Events/WindowEvents.hpp"
 
 #if defined(UNICODE) || defined(_UNICODE)
 #define PERUNENGINE_WINDOWS_C_STR(str) L##str

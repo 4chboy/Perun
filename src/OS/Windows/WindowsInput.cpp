@@ -1,5 +1,5 @@
-#include "PerunEnginePCH.h"
-#include "WindowsInput.h"
+#include "PerunEnginePCH.hpp"
+#include "WindowsInput.hpp"
 
 namespace perun {
 

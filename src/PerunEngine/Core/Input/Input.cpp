@@ -1,6 +1,6 @@
-#include "PerunEnginePCH.h"
-#include "Input.h"
-#include "OS/Windows/WindowsInput.h"
+#include "PerunEnginePCH.hpp"
+#include "Input.hpp"
+#include "OS/Windows/WindowsInput.hpp"
 
 namespace perun {
 

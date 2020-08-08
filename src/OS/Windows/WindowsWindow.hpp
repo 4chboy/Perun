@@ -1,6 +1,6 @@
 #ifndef _PERUNENGINE_WINDOWS_WINDOW_H
 #define _PERUNENGINE_WINDOWS_WINDOW_H
-#include "PerunEngine/Core/Window.h"
+#include "PerunEngine/Core/Window.hpp"
 
 typedef struct HWND__ *HWND;
 
