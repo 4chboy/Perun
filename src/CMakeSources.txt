@@ -1,6 +1,11 @@
 set(PERUN_SOURCES
+    ${CMAKE_CURRENT_LIST_DIR}/API/OpenGL/OpenGLAPI.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/API/OpenGL/OpenGLAPI.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/API/OpenGL/OpenGLContext.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/API/OpenGL/OpenGLContext.hpp
     ${CMAKE_CURRENT_LIST_DIR}/OS/Windows/WindowsInput.cpp
     ${CMAKE_CURRENT_LIST_DIR}/OS/Windows/WindowsInput.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/OS/Windows/WindowsPlatform.cpp
     ${CMAKE_CURRENT_LIST_DIR}/OS/Windows/WindowsWindow.cpp
     ${CMAKE_CURRENT_LIST_DIR}/OS/Windows/WindowsWindow.hpp
     ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/Core/EventSystem/Events/Event.hpp
@@ -16,9 +21,22 @@ set(PERUN_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/Core/Application.cpp
     ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/Core/Application.hpp
     ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/Core/EntryPoint.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/Core/Platform.hpp
     ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/Core/Window.cpp
     ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/Core/Window.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/GFX/GraphicsAPI.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/GFX/GraphicsAPI.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/GFX/GraphicsAPIType.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/GFX/GraphicsContext.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/GFX/GraphicsContext.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/GFX/Shader.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/GFX/Shader.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/GFX/Texture.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/GFX/Texture.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/GFX/TextureAtlas.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/GFX/TextureAtlas.hpp
     ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/Perun.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/Definitions.hpp
 )
 
 set(PERUN_PCH

@@ -1,51 +1,37 @@
 #ifndef _PERUNENGINE_WINDOW_H
 #define _PERUNENGINE_WINDOW_H
-#include "PerunEngine/Core/EventSystem/EventSystem.hpp"
 
-namespace perun
-{
-    struct PERUNENGINE_API WindowProps final
-    {
-        std::uint32_t width, height;
+#include "EventSystem/Events/Event.hpp"
+
+namespace perun {
+
+    struct PERUNENGINE_API WindowProps final {
+        uint32_t width, height;
         std::string title;
-        bool fullScreen, vSync;
     };
 
     class PERUNENGINE_API Window
     {
     public:
-        struct WindowCore
-        {
+        using SubmitFn = std::function<void(Event*)>;
+        struct WindowCore {
             WindowProps props;
-            EventSystem eventSystem;
-            bool shouldClose;
+            std::function<void(Event*)> submit;
         };
 
-        virtual ~Window() = default;
-
-        [[nodiscard]] inline const WindowProps& GetProps() const
-        {
-            return core.props;
-        }
-        [[nodiscard]] inline EventSystem& GetEventSystem()
-        {
-            return core.eventSystem;
-        }
-        [[nodiscard]] inline const EventSystem& GetEventSystem() const
-        {
-            return core.eventSystem;
-        }
-        [[nodiscard]] inline bool IsShouldClose() const
-        {
-            return core.shouldClose;
-        }
+        [[nodiscard]] inline uint32_t GetWidth()           const { return core.props.width; }
+        [[nodiscard]] inline uint32_t GetHeight()          const { return core.props.height; }
+        [[nodiscard]] inline const std::string& GetTitle() const { return core.props.title; }
+        inline void SubmitEvent(Event* event)              const { core.submit(event); }
 
         virtual void Update() = 0;
 
-        static std::unique_ptr<Window> Create(const WindowProps& props);
-
     protected:
-        explicit Window(const WindowProps& props) noexcept;
+        explicit Window(SubmitFn submitFn) :
+            core{ { }, std::move(submitFn) } { }
+        Window(WindowProps windowProps, SubmitFn submitFn) :
+            core{ std::move(windowProps), std::move(submitFn) } { }
+        virtual ~Window() = default;
 
         WindowCore core;
     };

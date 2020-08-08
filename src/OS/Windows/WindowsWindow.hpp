@@ -9,13 +9,13 @@ namespace perun
     class WindowsWindow final : public Window
     {
     public:
-        explicit WindowsWindow(const WindowProps& props);
-        ~WindowsWindow() override = default;
+        WindowsWindow(WindowProps windowProps, SubmitFn submitFn);
+        ~WindowsWindow() override;
 
         void Update() override;
 
     private:
-        HWND hWnd;
+        HWND wnd;
     };
 } // namespace perun
 
