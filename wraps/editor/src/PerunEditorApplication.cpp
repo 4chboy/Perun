@@ -1,5 +1,5 @@
-#include "PerunEditorPCH.h"
-#include "PerunEditorApplication.h"
+#include "PerunEditorPCH.hpp"
+#include "PerunEditorApplication.hpp"
 
 #include <iostream>
 

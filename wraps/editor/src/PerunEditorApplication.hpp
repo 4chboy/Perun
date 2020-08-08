@@ -1,4 +1,4 @@
-#include <PerunEngine/Perun.h>
+#include <PerunEngine/Perun.hpp>
 
 namespace perun {
 

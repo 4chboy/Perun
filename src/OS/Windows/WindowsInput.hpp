@@ -1,6 +1,6 @@
 #ifndef _PERUNENGINE_WINDOWS_INPUT_H
 #define _PERUNENGINE_WINDOWS_INPUT_H
-#include "PerunEngine/Core/Input/Input.h"
+#include "PerunEngine/Core/Input/Input.hpp"
 
 namespace perun {
 

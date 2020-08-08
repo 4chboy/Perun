@@ -1,7 +1,7 @@
 #ifndef _PERUNENGINE_INPUT_H
 #define _PERUNENGINE_INPUT_H
-#include "KeyCodes.h"
-#include "MouseCodes.h"
+#include "KeyCodes.hpp"
+#include "MouseCodes.hpp"
 
 namespace perun {
 

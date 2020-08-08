@@ -1,6 +1,6 @@
-#include "PerunEnginePCH.h"
-#include "Window.h"
-#include "OS/Windows/WindowsWindow.h"
+#include "PerunEnginePCH.hpp"
+#include "Window.hpp"
+#include "OS/Windows/WindowsWindow.hpp"
 
 namespace perun {
 

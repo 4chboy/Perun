@@ -2,8 +2,8 @@
 #define _PERUNENGINE_MOUSE_EVENTS_H
 #include <cstdint>
 
-#include "Event.h"
-#include "PerunEngine/Core/Input/MouseCodes.h"
+#include "Event.hpp"
+#include "PerunEngine/Core/Input/MouseCodes.hpp"
 
 namespace perun {
 

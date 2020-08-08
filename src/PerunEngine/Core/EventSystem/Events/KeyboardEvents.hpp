@@ -2,8 +2,8 @@
 #define _PERUNENGINE_KEYBOARD_EVENTS_H
 #include <cstdint>
 
-#include "Event.h"
-#include "PerunEngine/Core/Input/KeyCodes.h"
+#include "Event.hpp"
+#include "PerunEngine/Core/Input/KeyCodes.hpp"
 
 namespace perun {
 

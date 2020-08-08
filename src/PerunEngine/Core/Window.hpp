@@ -1,6 +1,6 @@
 #ifndef _PERUNENGINE_WINDOW_H
 #define _PERUNENGINE_WINDOW_H
-#include "EventSystem/EventSystem.h"
+#include "PerunEngine/Core/EventSystem/EventSystem.hpp"
 
 namespace perun {
 

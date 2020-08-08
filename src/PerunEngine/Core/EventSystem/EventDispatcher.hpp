@@ -1,6 +1,6 @@
 #ifndef _PERUNENGINE_EVENT_DISPATCHER_H
 #define _PERUNENGINE_EVENT_DISPATCHER_H
-#include "PerunEngine/Core/EventSystem/Events/Event.h"
+#include "PerunEngine/Core/EventSystem/Events/Event.hpp"
 
 namespace perun {
 

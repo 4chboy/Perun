@@ -1,6 +1,6 @@
 #ifndef _PERUNENGINE_APPLICATION_H
 #define _PERUNENGINE_APPLICATION_H
-#include "Window.h"
+#include "Window.hpp"
 
 namespace perun {
 

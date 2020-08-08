@@ -1,5 +1,5 @@
-#include "PerunEnginePCH.h"
-#include "Application.h"
+#include "PerunEnginePCH.hpp"
+#include "Application.hpp"
 
 namespace perun {
 
