@@ -2,17 +2,20 @@
 #define _PERUNENGINE_WINDOW_H
 #include "PerunEngine/Core/EventSystem/EventSystem.hpp"
 
-namespace perun {
-
-    struct PERUNENGINE_API WindowProps final {
+namespace perun
+{
+    struct PERUNENGINE_API WindowProps final
+    {
         std::uint32_t width, height;
         std::string title;
         bool fullScreen, vSync;
     };
 
-    class PERUNENGINE_API Window {
+    class PERUNENGINE_API Window
+    {
     public:
-        struct WindowCore {
+        struct WindowCore
+        {
             WindowProps props;
             EventSystem eventSystem;
             bool shouldClose;
@@ -20,10 +23,22 @@ namespace perun {
 
         virtual ~Window() = default;
 
-        [[nodiscard]] inline const WindowProps& GetProps() const { return core.props; }
-        [[nodiscard]] inline EventSystem& GetEventSystem() { return core.eventSystem; }
-        [[nodiscard]] inline const EventSystem& GetEventSystem() const { return core.eventSystem; }
-        [[nodiscard]] inline bool IsShouldClose() const { return core.shouldClose; }
+        [[nodiscard]] inline const WindowProps& GetProps() const
+        {
+            return core.props;
+        }
+        [[nodiscard]] inline EventSystem& GetEventSystem()
+        {
+            return core.eventSystem;
+        }
+        [[nodiscard]] inline const EventSystem& GetEventSystem() const
+        {
+            return core.eventSystem;
+        }
+        [[nodiscard]] inline bool IsShouldClose() const
+        {
+            return core.shouldClose;
+        }
 
         virtual void Update() = 0;
 
@@ -34,6 +49,6 @@ namespace perun {
 
         WindowCore core;
     };
-}
+} // namespace perun
 
 #endif //_PERUNENGINE_WINDOW_H
