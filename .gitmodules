@@ -1,6 +1,0 @@
-[submodule "Perun/SvarogLang/dep/spdlog"]
-	path = Perun/SvarogLang/dep/spdlog
-	url = https://github.com/4chboy/spdlog.git
-[submodule "Perun/PerunEngine/dep/glm"]
-	path = Perun/PerunEngine/dep/glm
-	url = https://github.com/g-truc/glm.git
