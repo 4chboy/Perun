@@ -12,6 +12,7 @@ target_precompile_headers(perun_engine PUBLIC
 
 target_link_libraries(perun_engine
     glm
+    Glad
 )
 
 if (WIN32)

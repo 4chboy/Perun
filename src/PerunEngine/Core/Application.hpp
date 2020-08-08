@@ -1,6 +1,8 @@
 #ifndef _PERUNENGINE_APPLICATION_H
 #define _PERUNENGINE_APPLICATION_H
-#include "Window.hpp"
+
+#include <memory>
+#include "Definitions.hpp"
 
 namespace perun
 {
@@ -12,11 +14,6 @@ namespace perun
         virtual void Start() = 0;
         virtual void Run() = 0;
         [[nodiscard]] virtual bool ShouldClose() const = 0;
-
-    protected:
-        Application();
-
-        std::unique_ptr<Window> window;
     };
 
     std::unique_ptr<Application> CreateApplication();
