@@ -20,7 +20,12 @@ add_executable(PerunEditor ${PerunEditorHeaders} ${PerunEditorSources})
 target_precompile_headers(PerunEditor PUBLIC
         ${PerunEditorSrcDir}/PerunEditorPCH.h
         )
-target_include_directories(PerunEditor PUBLIC ../PerunEngine/src)
+target_include_directories(PerunEditor PUBLIC
+        ../PerunEngine/src
+        ../PerunEngine/dep/glm/glm
+        ../PerunEngine/dep/glad/include
+        ../PerunEngine/dep/stb/include
+        )
 
 if (WIN32)
     target_compile_definitions(PerunEditor PUBLIC

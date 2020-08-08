@@ -19,11 +19,11 @@ namespace perun {
 
     class PERUNENGINE_API KeyPressedEvent final : public KeyEvent {
     public:
-        KeyPressedEvent(KeyCode keyCode, int32_t numOfRepeats) noexcept :
+        KeyPressedEvent(KeyCode keyCode, uint32_t numOfRepeats) noexcept :
             KeyEvent{ EventType::KeyPressed, keyCode },
             numOfRepeats{ numOfRepeats } { }
 
-        int32_t numOfRepeats;
+        uint32_t numOfRepeats;
     };
 
     class PERUNENGINE_API KeyReleasedEvent final : public KeyEvent {
@@ -34,8 +34,11 @@ namespace perun {
 
     class PERUNENGINE_API KeyTypedEvent final : public KeyEvent {
     public:
-        explicit KeyTypedEvent(KeyCode keyCode) noexcept :
-            KeyEvent{ EventType::KeyTyped, keyCode } { }
+        explicit KeyTypedEvent(KeyCode keyCode, char character) noexcept :
+            KeyEvent{ EventType::KeyTyped, keyCode },
+            character{ character } { }
+
+        char character;
     };
 }
 

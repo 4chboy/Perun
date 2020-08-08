@@ -9,11 +9,9 @@ namespace perun {
         WindowsInput() noexcept = default;
         ~WindowsInput() noexcept override = default;
 
-    protected:
-        [[nodiscard]] bool IsKeyDownImpl(KeyCode key) const noexcept override;
-        [[nodiscard]] bool IsKeyOnImpl(KeyCode key) const noexcept override;
-        [[nodiscard]] bool IsMouseButtonDownImpl(MouseCode button) const noexcept override;
-        [[nodiscard]] std::pair<float, float> GetMousePosImpl() const noexcept override;
+        [[nodiscard]] bool IsKeyDown(KeyCode key) const noexcept override;
+        [[nodiscard]] bool IsMouseButtonDown(MouseCode button) const noexcept override;
+        [[nodiscard]] std::pair<float, float> GetMousePos() const noexcept override;
     };
 }
 

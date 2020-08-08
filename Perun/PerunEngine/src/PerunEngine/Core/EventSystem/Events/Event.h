@@ -8,9 +8,9 @@ namespace perun {
         // Keyboard
         KeyPressed, KeyReleased, KeyTyped,
         // Mouse
-        MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled,
+        MouseButtonPressed, MouseButtonReleased, MouseButtonDoubleClicked, MouseMoved, MouseScrolled,
         // Window
-        WindowMoved, WindowResized, WindowGainedFocus, WindowLostFocus, WindowClosed,
+        WindowMoved, WindowResized, WindowGainedFocus, WindowLostFocus, WindowCreated, WindowClosed,
         WindowMinimized, WindowMaximized,
     };
 
