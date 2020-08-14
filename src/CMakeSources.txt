@@ -5,7 +5,6 @@
 
 set(PERUN_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/Definitions.hpp
-    ${CMAKE_CURRENT_LIST_DIR}/PerunEnginePCH.hpp
 
     ${CMAKE_CURRENT_LIST_DIR}/OS/Windows/WindowsInput.cpp
     ${CMAKE_CURRENT_LIST_DIR}/OS/Windows/WindowsInput.hpp
@@ -31,4 +30,8 @@ set(PERUN_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/Core/Input/Input.hpp
     ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/Core/Input/KeyCodes.hpp
     ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/Core/Input/MouseCodes.hpp
+)
+
+set(PERUN_PCH
+    ${CMAKE_CURRENT_LIST_DIR}/PerunEnginePCH.hpp
 )
