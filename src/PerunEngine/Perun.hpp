@@ -1,5 +1,5 @@
-#ifndef _PERUNENGINE_H
-#define _PERUNENGINE_H
+#ifndef _PERUN_H
+#define _PERUN_H
 
 #include "Core/Input/Input.hpp"
 
@@ -9,10 +9,7 @@
 
 #include "Core/Window.hpp"
 
-#include "GFX/GraphicsContext.hpp"
-#include "GFX/GraphicsAPI.hpp"
-
 #include "Core/Application.hpp"
 #include "Core/EntryPoint.hpp"
 
-#endif //_PERUNENGINE_H
+#endif //_PERUN_H

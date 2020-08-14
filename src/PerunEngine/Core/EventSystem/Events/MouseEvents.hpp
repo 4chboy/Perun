@@ -1,5 +1,5 @@
-#ifndef _PERUNENGINE_MOUSE_EVENTS_H
-#define _PERUNENGINE_MOUSE_EVENTS_H
+#ifndef _PERUN_MOUSE_EVENTS_H
+#define _PERUN_MOUSE_EVENTS_H
 #include <cstdint>
 
 #include "Event.hpp"
@@ -7,7 +7,8 @@
 
 namespace perun {
 
-    class PERUNENGINE_API MouseButtonEvent : public Event {
+    class PERUN_API MouseButtonEvent : public Event
+    {
     public:
         MouseCode button;
 
@@ -17,25 +18,29 @@ namespace perun {
             button{ button } { }
     };
 
-    class PERUNENGINE_API MouseButtonPressedEvent final : public MouseButtonEvent {
+    class PERUN_API MouseButtonPressedEvent final : public MouseButtonEvent
+    {
     public:
         explicit MouseButtonPressedEvent(MouseCode button) noexcept :
             MouseButtonEvent{ EventType::MouseButtonPressed, button } { }
     };
 
-    class PERUNENGINE_API MouseButtonReleasedEvent final : public MouseButtonEvent {
+    class PERUN_API MouseButtonReleasedEvent final : public MouseButtonEvent
+    {
     public:
         explicit MouseButtonReleasedEvent(MouseCode button) noexcept :
             MouseButtonEvent{ EventType::MouseButtonReleased, button } { }
     };
 
-    class PERUNENGINE_API MouseButtonDoubleClickedEvent final : public MouseButtonEvent {
+    class PERUN_API MouseButtonDoubleClickedEvent final : public MouseButtonEvent
+    {
     public:
         explicit MouseButtonDoubleClickedEvent(MouseCode button) noexcept :
                 MouseButtonEvent{ EventType::MouseButtonDoubleClicked, button } { }
     };
 
-    class PERUNENGINE_API MouseMovedEvent final : public Event {
+    class PERUN_API MouseMovedEvent final : public Event
+    {
     public:
         MouseMovedEvent(float x, float y) noexcept :
             Event{ EventType::MouseMoved, EventCategory::Input | EventCategory::Mouse },
@@ -45,7 +50,8 @@ namespace perun {
         float x, y;
     };
 
-    class PERUNENGINE_API MouseScrolledEvent final : public Event {
+    class PERUN_API MouseScrolledEvent final : public Event
+    {
     public:
         MouseScrolledEvent(float dx, float dy) noexcept :
             Event{ EventType::MouseScrolled, EventCategory::Input | EventCategory::Mouse },
@@ -56,4 +62,4 @@ namespace perun {
     };
 }
 
-#endif //_PERUNENGINE_KEYBOARD_EVENTS_H
+#endif //_PERUN_KEYBOARD_EVENTS_H

@@ -1,5 +1,5 @@
-#ifndef _PERUNENGINE_ENTRY_POINT_H
-#define _PERUNENGINE_ENTRY_POINT_H
+#ifndef _PERUN_ENTRY_POINT_H
+#define _PERUN_ENTRY_POINT_H
 
 int main(int argc, char* argv[])
 {
@@ -10,4 +10,4 @@ int main(int argc, char* argv[])
     }
 };
 
-#endif //_PERUNENGINE_ENTRY_POINT_H
+#endif //_PERUN_ENTRY_POINT_H

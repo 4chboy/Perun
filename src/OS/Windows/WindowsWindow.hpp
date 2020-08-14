@@ -1,8 +1,8 @@
-#ifndef _PERUNENGINE_WINDOWS_WINDOW_H
-#define _PERUNENGINE_WINDOWS_WINDOW_H
+#ifndef _PERUN_WINDOWS_WINDOW_H
+#define _PERUN_WINDOWS_WINDOW_H
 #include "PerunEngine/Core/Window.hpp"
 
-typedef struct HWND__* HWND;
+using HWND = struct HWND__*;
 
 namespace perun
 {
@@ -19,4 +19,4 @@ namespace perun
     };
 } // namespace perun
 
-#endif //_PERUNENGINE_WINDOWS_WINDOW_H
+#endif //_PERUN_WINDOWS_WINDOW_H

@@ -1,11 +1,12 @@
-#ifndef _PERUNENGINE_INPUT_H
-#define _PERUNENGINE_INPUT_H
+#ifndef _PERUN_INPUT_H
+#define _PERUN_INPUT_H
+
 #include "KeyCodes.hpp"
 #include "MouseCodes.hpp"
 
 namespace perun
 {
-    class PERUNENGINE_API Input
+    class PERUN_API Input
     {
     public:
         virtual ~Input() noexcept = default;
@@ -23,4 +24,4 @@ namespace perun
     };
 } // namespace perun
 
-#endif //_PERUNENGINE_INPUT_H
+#endif //_PERUN_INPUT_H

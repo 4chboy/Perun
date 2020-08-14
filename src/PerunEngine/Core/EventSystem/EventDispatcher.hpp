@@ -1,10 +1,11 @@
-#ifndef _PERUNENGINE_EVENT_DISPATCHER_H
-#define _PERUNENGINE_EVENT_DISPATCHER_H
+#ifndef _PERUN_EVENT_DISPATCHER_H
+#define _PERUN_EVENT_DISPATCHER_H
+
 #include "PerunEngine/Core/EventSystem/Events/Event.hpp"
 
 namespace perun
 {
-    class PERUNENGINE_API EventDispatcher final
+    class PERUN_API EventDispatcher final
     {
     public:
         explicit EventDispatcher(Event& eventToDispatch) noexcept
@@ -26,4 +27,4 @@ namespace perun
     };
 } // namespace perun
 
-#endif //_PERUNENGINE_EVENT_DISPATCHER_H
+#endif //_PERUN_EVENT_DISPATCHER_H

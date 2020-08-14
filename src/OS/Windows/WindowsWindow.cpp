@@ -4,11 +4,11 @@
 #include <Windowsx.h>
 
 #if defined(UNICODE) || defined(_UNICODE)
-#define PERUNENGINE_WINDOWS_C_STR(str) L##str
-#define PERUNENGINE_WINDOWS_STR(str) std::wstring{ std::begin(str), std::end(str) }
+#define PERUN_WINDOWS_C_STR(str) L##str
+#define PERUN_WINDOWS_STR(str) std::wstring{ std::begin(str), std::end(str) }
 #else
-#define PERUNENGINE_WINDOWS_C_STR(str) str
-#define PERUNENGINE_WINDOWS_STR(str) str
+#define PERUN_WINDOWS_C_STR(str) str
+#define PERUN_WINDOWS_STR(str) str
 #endif
 
 #include "WindowsWindow.hpp"
@@ -88,6 +88,7 @@ namespace perun {
             switch (wParam)    {
             case SC_MINIMIZE:  { return WindowMinimizeCallback(core); }
             case SC_MAXIMIZE:  { return WindowMaximizeCallback(core); }
+            default:           { return DefWindowProc(wnd, msg, wParam, lParam); }
             }
         }
         case WM_DESTROY:       { PostQuitMessage(0); return 0; }
@@ -97,7 +98,7 @@ namespace perun {
 
     WindowsWindow::WindowsWindow(WindowProps windowProps, SubmitFn submitFn) :
         Window{ std::move(windowProps), std::move(submitFn) } {
-        constexpr auto className = PERUNENGINE_WINDOWS_C_STR("PerunEngineWndClass");
+        constexpr auto className = PERUN_WINDOWS_C_STR("PerunEngineWndClass");
         auto instance = GetModuleHandle(nullptr);
 
         WNDCLASSEX wce;
@@ -119,7 +120,7 @@ namespace perun {
         wnd = CreateWindowEx(
                 0, // Optional styles
                 className,
-                PERUNENGINE_WINDOWS_STR(core.props.title).c_str(),
+                PERUN_WINDOWS_STR(core.props.title).c_str(),
                 WS_OVERLAPPEDWINDOW, // Style
                 CW_USEDEFAULT, CW_USEDEFAULT, // Position
                 windowWidth, windowHeight, // Size

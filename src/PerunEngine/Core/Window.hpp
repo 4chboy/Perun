@@ -1,16 +1,17 @@
-#ifndef _PERUNENGINE_WINDOW_H
-#define _PERUNENGINE_WINDOW_H
+#ifndef _PERUN_WINDOW_H
+#define _PERUN_WINDOW_H
 
 #include "EventSystem/Events/Event.hpp"
 
 namespace perun {
 
-    struct PERUNENGINE_API WindowProps final {
+    struct PERUN_API WindowProps final
+    {
         uint32_t width, height;
         std::string title;
     };
 
-    class PERUNENGINE_API Window
+    class PERUN_API Window
     {
     public:
         using SubmitFn = std::function<void(Event*)>;
@@ -19,6 +20,8 @@ namespace perun {
             std::function<void(Event*)> submit;
         };
 
+        virtual ~Window() = default;
+      
         [[nodiscard]] inline uint32_t GetWidth()           const { return core.props.width; }
         [[nodiscard]] inline uint32_t GetHeight()          const { return core.props.height; }
         [[nodiscard]] inline const std::string& GetTitle() const { return core.props.title; }
@@ -31,10 +34,9 @@ namespace perun {
             core{ { }, std::move(submitFn) } { }
         Window(WindowProps windowProps, SubmitFn submitFn) :
             core{ std::move(windowProps), std::move(submitFn) } { }
-        virtual ~Window() = default;
 
         WindowCore core;
     };
 } // namespace perun
 
-#endif //_PERUNENGINE_WINDOW_H
+#endif //_PERUN_WINDOW_H

@@ -1,29 +1,29 @@
-#ifndef _PERUNENGINE_DEFINITIONS_H
-#define _PERUNENGINE_DEFINITIONS_H
+#ifndef _PERUN_DEFINITIONS_H
+#define _PERUN_DEFINITIONS_H
 
 #if defined(_WIN32) || defined(WIN32) || defined(WIN64)
-    #define PERUNENGINE_OS_WINDOWS
+    #define PERUN_OS_WINDOWS
 #elif defined(__APPLE__) || defined(__MACH__)
     #include <TargetConditionals.h>
     #if TARGET_OS_SIMULATOR == 1 || TARGET_OS_IPHONE == 1
-        #define PERUNENGINE_OS_IOS
+        #define PERUN_OS_IOS
     #elif TARGET_OS_MAC == 1
-        #define PERUNENGINE_OS_MACOS
+        #define PERUN_OS_MACOS
     #endif
 #elif defined(__ANDROID__)
-    #define PERUNENGINE_OS_ANDROID
+    #define PERUN_OS_ANDROID
 #elif defined(__linux__)
-    #define PERUNENGINE_OS_LINUX
+    #define PERUN_OS_LINUX
 #endif
 
-#if defined(PERUNENGINE_OS_WINDOWS)
-    #ifdef PERUNENGINE_BUILD_DLL
-        #define PERUNENGINE_API __declspec(dllexport)
+#if defined(PERUN_OS_WINDOWS)
+    #ifdef PERUN_BUILD_DLL
+        #define PERUN_API __declspec(dllexport)
     #else
-        #define PERUNENGINE_API __declspec(dllimport)
+        #define PERUN_API __declspec(dllimport)
     #endif
 #else
-    #define PERUNENGINE_API
+    #define PERUN_API
 #endif
 
-#endif //_PERUNENGINE_DEFINITIONS_H
+#endif //_PERUN_DEFINITIONS_H

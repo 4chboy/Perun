@@ -1,5 +1,6 @@
-#ifndef _PERUNENGINE_WINDOWS_INPUT_H
-#define _PERUNENGINE_WINDOWS_INPUT_H
+#ifndef _PERUN_WINDOWS_INPUT_H
+#define _PERUN_WINDOWS_INPUT_H
+
 #include "PerunEngine/Core/Input/Input.hpp"
 
 namespace perun
@@ -16,4 +17,4 @@ namespace perun
     };
 } // namespace perun
 
-#endif //_PERUNENGINE_WINDOWS_INPUT_H
+#endif //_PERUN_WINDOWS_INPUT_H
