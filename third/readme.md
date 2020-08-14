@@ -5,7 +5,12 @@ List of third-party modules used in engine.
 
 GLAD
 ----
-No info...
+Project: https://gen.glad.sh/
+Version: latest generated files from the link above
+
+Generated using:
+  gl - version 4.6
+  wgl - version 1.0 (with WGL_EXT_swap_control extension)
 
 GLM
 ---
