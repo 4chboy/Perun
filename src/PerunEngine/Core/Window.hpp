@@ -1,5 +1,4 @@
-#ifndef _PERUN_WINDOW_H
-#define _PERUN_WINDOW_H
+#pragma once
 
 #include <cstdint>
 #include <string>
@@ -60,5 +59,3 @@ namespace perun
         WindowCore core;
     };
 } // namespace perun
-
-#endif //_PERUN_WINDOW_H

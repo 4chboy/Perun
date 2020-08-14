@@ -1,5 +1,4 @@
-#ifndef _PERUN_EVENT_H
-#define _PERUN_EVENT_H
+#pragma once
 
 #include <cstddef>
 
@@ -106,5 +105,3 @@ namespace perun
         size_t categoryFlags;
     };
 } // namespace perun
-
-#endif //_PERUN_EVENT_H

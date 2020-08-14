@@ -1,5 +1,5 @@
-#ifndef _PERUN_MOUSE_EVENTS_H
-#define _PERUN_MOUSE_EVENTS_H
+#pragma once
+
 #include <cstdint>
 
 #include "Event.hpp"
@@ -73,5 +73,3 @@ namespace perun
         float dx, dy;
     };
 } // namespace perun
-
-#endif //_PERUN_KEYBOARD_EVENTS_H

@@ -1,5 +1,4 @@
-#ifndef _PERUN_KEY_CODES_H
-#define _PERUN_KEY_CODES_H
+#pragma once
 
 namespace perun
 {
@@ -147,5 +146,3 @@ namespace perun
         size_t code;
     };
 } // namespace perun
-
-#endif //_PERUN_KEY_CODES_H

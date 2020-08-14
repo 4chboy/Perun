@@ -1,5 +1,4 @@
-#ifndef _PERUN_PLATFORM_H
-#define _PERUN_PLATFORM_H
+#pragma once
 
 #include "Window.hpp"
 #include "Input/Input.hpp"
@@ -13,5 +12,3 @@ namespace perun
         static std::unique_ptr<Input> CreateInput();
     };
 } // namespace perun
-
-#endif //_PERUN_PLATFORM_H

@@ -1,5 +1,5 @@
-#ifndef _PERUN_WINDOW_EVENTS_H
-#define _PERUN_WINDOW_EVENTS_H
+#pragma once
+
 #include <cstdint>
 
 #include "Event.hpp"
@@ -86,5 +86,3 @@ namespace perun
         }
     };
 } // namespace perun
-
-#endif //_PERUN_WINDOW_EVENTS_H

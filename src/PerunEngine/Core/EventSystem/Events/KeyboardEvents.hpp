@@ -1,5 +1,5 @@
-#ifndef _PERUN_KEYBOARD_EVENTS_H
-#define _PERUN_KEYBOARD_EVENTS_H
+#pragma once
+
 #include <cstdint>
 
 #include "Event.hpp"
@@ -53,5 +53,3 @@ namespace perun
         char character;
     };
 } // namespace perun
-
-#endif //_PERUN_KEYBOARD_EVENTS_H

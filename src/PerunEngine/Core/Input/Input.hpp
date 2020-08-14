@@ -1,5 +1,4 @@
-#ifndef _PERUN_INPUT_H
-#define _PERUN_INPUT_H
+#pragma once
 
 #include "KeyCodes.hpp"
 #include "MouseCodes.hpp"
@@ -35,5 +34,3 @@ namespace perun
         Input() noexcept = default;
     };
 } // namespace perun
-
-#endif //_PERUN_INPUT_H

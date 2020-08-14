@@ -1,5 +1,4 @@
-#ifndef _PERUN_EVENT_SYSTEM_H
-#define _PERUN_EVENT_SYSTEM_H
+#pragma once
 
 #include "Events/Event.hpp"
 #include "EventDispatcher.hpp"
@@ -57,5 +56,3 @@ namespace perun
         std::map<EventType, std::function<bool(Event&)>> eventListeners;
     };
 } // namespace perun
-
-#endif //_PERUN_EVENT_SYSTEM_H

@@ -1,5 +1,4 @@
-#ifndef _PERUN_EVENT_DISPATCHER_H
-#define _PERUN_EVENT_DISPATCHER_H
+#pragma once
 
 #include "PerunEngine/Core/EventSystem/Events/Event.hpp"
 
@@ -26,5 +25,3 @@ namespace perun
         Event& event;
     };
 } // namespace perun
-
-#endif //_PERUN_EVENT_DISPATCHER_H

@@ -1,5 +1,4 @@
-#ifndef _PERUN_APPLICATION_H
-#define _PERUN_APPLICATION_H
+#pragma once
 
 #include <memory>
 #include "Definitions.hpp"
@@ -18,5 +17,3 @@ namespace perun
 
     std::unique_ptr<Application> CreateApplication();
 } // namespace perun
-
-#endif //_PERUN_APPLICATION_H
