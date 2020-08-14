@@ -4,7 +4,7 @@ project(perun_engine)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(PERUN_SHARED ON)
+set(PERUN_SHARED OFF)
 
 if(PERUN_SHARED)
     add_definitions("-DPERUN_SHARED_LIBRARY=1")
