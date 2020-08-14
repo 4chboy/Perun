@@ -1,7 +1,9 @@
 #pragma once
 
-#include "Events/Event.hpp"
-#include "EventDispatcher.hpp"
+#include <PerunEnginePCH.hpp>
+
+#include <PerunEngine/Core/EventSystem/Events/Event.hpp>
+#include <PerunEngine/Core/EventSystem/EventDispatcher.hpp>
 
 namespace perun
 {
@@ -53,6 +55,6 @@ namespace perun
         }
 
         std::vector<Event*> eventQueue;
-        std::map<EventType, std::function<bool(Event&)>> eventListeners;
+        std::unordered_map<EventType, std::function<bool(Event&)>> eventListeners;
     };
 } // namespace perun

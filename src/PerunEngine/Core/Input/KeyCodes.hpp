@@ -1,5 +1,9 @@
 #pragma once
 
+#include <cstddef>
+
+#include <Definitions.hpp>
+
 namespace perun
 {
     class PERUN_API KeyCode final

@@ -1,7 +1,7 @@
 #pragma once
 
 #if defined(PERUN_OS_WINDOWS)
-    #include "PerunEngine/Core/Window.hpp"
+    #include <PerunEngine/Core/Window.hpp>
 
 using HWND = struct HWND__*;
 

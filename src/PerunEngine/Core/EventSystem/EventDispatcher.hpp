@@ -1,6 +1,6 @@
 #pragma once
 
-#include "PerunEngine/Core/EventSystem/Events/Event.hpp"
+#include <PerunEngine/Core/EventSystem/Events/Event.hpp>
 
 namespace perun
 {

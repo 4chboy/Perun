@@ -1,8 +1,6 @@
 #pragma once
 
-#include <cstdint>
-#include <string>
-#include <functional>
+#include <PerunEnginePCH.hpp>
 
 #include <PerunEngine/Core/EventSystem/Events/Event.hpp>
 #include <Definitions.hpp>

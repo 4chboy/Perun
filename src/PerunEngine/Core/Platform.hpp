@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Window.hpp"
-#include "Input/Input.hpp"
+#include <PerunEngine/Core/Window.hpp>
+#include <PerunEngine/Core/Input/Input.hpp>
 
 namespace perun
 {

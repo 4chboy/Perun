@@ -22,4 +22,4 @@
 
 #include <glad/gl.h>
 
-#include "Definitions.hpp"
+#include <Definitions.hpp>

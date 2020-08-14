@@ -1,9 +1,9 @@
 #pragma once
 
-#include <cstdint>
+#include <PerunEnginePCH.hpp>
 
-#include "Event.hpp"
-#include "PerunEngine/Core/Input/MouseCodes.hpp"
+#include <PerunEngine/Core/EventSystem/Events/Event.hpp>
+#include <PerunEngine/Core/Input/MouseCodes.hpp>
 
 namespace perun
 {

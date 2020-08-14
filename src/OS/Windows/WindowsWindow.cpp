@@ -1,5 +1,7 @@
 #if defined(PERUN_OS_WINDOWS)
-    #include "PerunEnginePCH.hpp"
+    #include <PerunEnginePCH.hpp>
+
+    #include "WindowsWindow.hpp"
 
     #include <Windows.h>
     #include <Windowsx.h>
@@ -16,11 +18,9 @@
         #define PERUN_WINDOWS_STR(str) str
     #endif
 
-    #include "WindowsWindow.hpp"
-
-    #include "PerunEngine/Core/EventSystem/Events/KeyboardEvents.hpp"
-    #include "PerunEngine/Core/EventSystem/Events/MouseEvents.hpp"
-    #include "PerunEngine/Core/EventSystem/Events/WindowEvents.hpp"
+    #include <PerunEngine/Core/EventSystem/Events/KeyboardEvents.hpp>
+    #include <PerunEngine/Core/EventSystem/Events/MouseEvents.hpp>
+    #include <PerunEngine/Core/EventSystem/Events/WindowEvents.hpp>
 
     #ifndef WM_MOUSEHWHEEL
         #define WM_MOUSEHWHEEL 0x020E

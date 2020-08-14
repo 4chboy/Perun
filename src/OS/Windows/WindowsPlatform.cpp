@@ -1,9 +1,9 @@
 #if defined(PERUN_OS_WINDOWS)
-    #include "PerunEnginePCH.hpp"
-    #include "PerunEngine/Core/Platform.hpp"
+    #include <PerunEnginePCH.hpp>
+    #include <PerunEngine/Core/Platform.hpp>
 
-    #include "WindowsWindow.hpp"
-    #include "WindowsInput.hpp"
+    #include <OS/Windows/WindowsWindow.hpp>
+    #include <OS/Windows/WindowsInput.hpp>
 
 namespace perun
 {

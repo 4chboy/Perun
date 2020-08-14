@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Core/Input/Input.hpp"
+#include <PerunEngine/Core/Input/Input.hpp>
 
-#include "Core/EventSystem/Events/KeyboardEvents.hpp"
-#include "Core/EventSystem/Events/MouseEvents.hpp"
-#include "Core/EventSystem/Events/WindowEvents.hpp"
+#include <PerunEngine/Core/EventSystem/Events/KeyboardEvents.hpp>
+#include <PerunEngine/Core/EventSystem/Events/MouseEvents.hpp>
+#include <PerunEngine/Core/EventSystem/Events/WindowEvents.hpp>
 
-#include "Core/Window.hpp"
+#include <PerunEngine/Core/Window.hpp>
 
-#include "Core/Application.hpp"
-#include "Core/EntryPoint.hpp"
+#include <PerunEngine/Core/Application.hpp>
+#include <PerunEngine/Core/EntryPoint.hpp>

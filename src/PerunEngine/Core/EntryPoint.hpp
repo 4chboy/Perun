@@ -1,5 +1,7 @@
 #pragma once
 
+#include <PerunEngine/Perun.hpp>
+
 int main(int argc, char* argv[])
 {
     auto application = perun::CreateApplication();

@@ -1,7 +1,8 @@
 #pragma once
 
-#include "KeyCodes.hpp"
-#include "MouseCodes.hpp"
+#include <PerunEngine/Core/Input/KeyCodes.hpp>
+#include <PerunEngine/Core/Input/MouseCodes.hpp>
+#include <Definitions.hpp>
 
 namespace perun
 {

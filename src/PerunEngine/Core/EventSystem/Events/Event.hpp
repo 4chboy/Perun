@@ -1,6 +1,8 @@
 #pragma once
 
-#include <cstddef>
+#include <PerunEnginePCH.hpp>
+
+#include <Definitions.hpp>
 
 namespace perun
 {
