@@ -5,7 +5,8 @@
 
 namespace perun {
 
-    struct PERUN_API WindowProps final {
+    struct PERUN_API WindowProps final
+    {
         uint32_t width, height;
         std::string title;
     };
@@ -20,7 +21,7 @@ namespace perun {
         };
 
         virtual ~Window() = default;
-
+      
         [[nodiscard]] inline uint32_t GetWidth()           const { return core.props.width; }
         [[nodiscard]] inline uint32_t GetHeight()          const { return core.props.height; }
         [[nodiscard]] inline const std::string& GetTitle() const { return core.props.title; }

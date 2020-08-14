@@ -6,7 +6,8 @@
 
 namespace perun {
 
-    class PERUN_API Platform final {
+    class PERUN_API Platform final
+    {
     public:
         static std::unique_ptr<Window> CreateWindow(WindowProps windowProps, Window::SubmitFn submitFn);
         static std::unique_ptr<Input> CreateInput();

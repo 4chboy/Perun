@@ -10,6 +10,7 @@ set(PERUN_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/Core/EventSystem/Events/WindowEvents.hpp
     ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/Core/EventSystem/EventDispatcher.hpp
     ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/Core/EventSystem/EventSystem.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/Core/Input/Input.cpp
     ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/Core/Input/Input.hpp
     ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/Core/Input/KeyCodes.hpp
     ${CMAKE_CURRENT_LIST_DIR}/PerunEngine/Core/Input/MouseCodes.hpp

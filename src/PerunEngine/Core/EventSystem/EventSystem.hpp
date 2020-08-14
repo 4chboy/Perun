@@ -1,5 +1,6 @@
 #ifndef _PERUN_EVENT_SYSTEM_H
 #define _PERUN_EVENT_SYSTEM_H
+
 #include "Events/Event.hpp"
 #include "EventDispatcher.hpp"
 

@@ -7,7 +7,8 @@
 
 namespace perun {
 
-    class PERUN_API MouseButtonEvent : public Event {
+    class PERUN_API MouseButtonEvent : public Event
+    {
     public:
         MouseCode button;
 
@@ -17,25 +18,29 @@ namespace perun {
             button{ button } { }
     };
 
-    class PERUN_API MouseButtonPressedEvent final : public MouseButtonEvent {
+    class PERUN_API MouseButtonPressedEvent final : public MouseButtonEvent
+    {
     public:
         explicit MouseButtonPressedEvent(MouseCode button) noexcept :
             MouseButtonEvent{ EventType::MouseButtonPressed, button } { }
     };
 
-    class PERUN_API MouseButtonReleasedEvent final : public MouseButtonEvent {
+    class PERUN_API MouseButtonReleasedEvent final : public MouseButtonEvent
+    {
     public:
         explicit MouseButtonReleasedEvent(MouseCode button) noexcept :
             MouseButtonEvent{ EventType::MouseButtonReleased, button } { }
     };
 
-    class PERUN_API MouseButtonDoubleClickedEvent final : public MouseButtonEvent {
+    class PERUN_API MouseButtonDoubleClickedEvent final : public MouseButtonEvent
+    {
     public:
         explicit MouseButtonDoubleClickedEvent(MouseCode button) noexcept :
                 MouseButtonEvent{ EventType::MouseButtonDoubleClicked, button } { }
     };
 
-    class PERUN_API MouseMovedEvent final : public Event {
+    class PERUN_API MouseMovedEvent final : public Event
+    {
     public:
         MouseMovedEvent(float x, float y) noexcept :
             Event{ EventType::MouseMoved, EventCategory::Input | EventCategory::Mouse },
@@ -45,7 +50,8 @@ namespace perun {
         float x, y;
     };
 
-    class PERUN_API MouseScrolledEvent final : public Event {
+    class PERUN_API MouseScrolledEvent final : public Event
+    {
     public:
         MouseScrolledEvent(float dx, float dy) noexcept :
             Event{ EventType::MouseScrolled, EventCategory::Input | EventCategory::Mouse },

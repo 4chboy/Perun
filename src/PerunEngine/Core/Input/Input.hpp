@@ -1,5 +1,6 @@
 #ifndef _PERUN_INPUT_H
 #define _PERUN_INPUT_H
+
 #include "KeyCodes.hpp"
 #include "MouseCodes.hpp"
 

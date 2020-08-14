@@ -3,7 +3,8 @@
 
 namespace perun {
 
-    enum class EventType : size_t {
+    enum class EventType : size_t
+    {
         Undefined = 0,
         // Keyboard
         KeyPressed, KeyReleased, KeyTyped,
@@ -14,7 +15,8 @@ namespace perun {
         WindowMinimized, WindowMaximized,
     };
 
-    enum class EventCategory : size_t {
+    enum class EventCategory : size_t
+    {
         Undefined = 0b0000,
         Window    = 0b0001,
         Input     = 0b0010,
@@ -41,7 +43,8 @@ namespace perun {
         return lhs | static_cast<size_t>(rhs);
     }
 
-    class PERUN_API Event {
+    class PERUN_API Event
+    {
     public:
         Event() noexcept :
             handled{ false },
