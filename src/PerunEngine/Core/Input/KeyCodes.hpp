@@ -1,18 +1,17 @@
-#ifndef _PERUNENGINE_KEY_CODES_H
-#define _PERUNENGINE_KEY_CODES_H
+#ifndef _PERUN_KEY_CODES_H
+#define _PERUN_KEY_CODES_H
 
 namespace perun {
 
-    class KeyCode final {
+    class PERUN_API KeyCode final {
     public:
+        static const size_t Undefined;
         static const size_t BackSpace;
         static const size_t Tab;
-        static const size_t Clear;
         static const size_t Enter;
         static const size_t Shift;
         static const size_t Ctrl;
         static const size_t Alt;
-        static const size_t Pause;
         static const size_t CapsLock;
         static const size_t Escape;
         static const size_t Space;
@@ -24,13 +23,10 @@ namespace perun {
         static const size_t Up;
         static const size_t Right;
         static const size_t Down;
-        static const size_t Select;
         static const size_t Print;
-        static const size_t Execute;
         static const size_t PrintScreen;
         static const size_t Insert;
         static const size_t Delete;
-        static const size_t Help;
         static const size_t K0;
         static const size_t K1;
         static const size_t K2;
@@ -67,7 +63,6 @@ namespace perun {
         static const size_t X;
         static const size_t Y;
         static const size_t Z;
-        static const size_t Sleep;
         static const size_t NumPad0;
         static const size_t NumPad1;
         static const size_t NumPad2;
@@ -78,12 +73,12 @@ namespace perun {
         static const size_t NumPad7;
         static const size_t NumPad8;
         static const size_t NumPad9;
-        static const size_t NumPadMultiply;
-        static const size_t NumPadAdd;
+        static const size_t Multiply;
+        static const size_t Add;
         static const size_t NumPadEnter;
-        static const size_t NumPadSubtract;
+        static const size_t Subtract;
         static const size_t NumPadDot;
-        static const size_t NumPadDivide;
+        static const size_t Divide;
         static const size_t F1;
         static const size_t F2;
         static const size_t F3;
@@ -109,14 +104,31 @@ namespace perun {
         static const size_t F23;
         static const size_t F24;
         static const size_t NumLock;
-        static const size_t ScrollLock;
         static const size_t LeftShift;
         static const size_t RightShift;
         static const size_t LeftCtrl;
         static const size_t RightCtrl;
         static const size_t LeftAlt;
         static const size_t RightAlt;
+
+        constexpr KeyCode(size_t value) :
+            code{ value } { }
+        template <typename T> requires std::is_convertible_v<T, size_t>
+        explicit constexpr KeyCode(const T& value) :
+            code{ static_cast<size_t>(value) } { }
+        template <typename T> requires std::is_convertible_v<T, size_t>
+        constexpr operator T() const { return static_cast<size_t>(code); }
+
+        template <typename T> requires std::is_convertible_v<T, size_t>
+        constexpr bool operator ! () const { return code == Undefined; }
+        template <typename T> requires std::is_convertible_v<T, size_t>
+        constexpr bool operator == (const T& value) const { return code == static_cast<size_t>(value); }
+        template <typename T> requires std::is_convertible_v<T, size_t>
+        constexpr bool operator != (const T& value) const { return code != static_cast<size_t>(value); }
+
+    private:
+        size_t code;
     };
 }
 
-#endif //_PERUNENGINE_KEY_CODES_H
+#endif //_PERUN_KEY_CODES_H

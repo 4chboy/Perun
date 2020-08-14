@@ -1,12 +1,12 @@
-#ifndef _PERUNENGINE_APPLICATION_H
-#define _PERUNENGINE_APPLICATION_H
+#ifndef _PERUN_APPLICATION_H
+#define _PERUN_APPLICATION_H
 
 #include <memory>
 #include "Definitions.hpp"
 
 namespace perun
 {
-    class PERUNENGINE_API Application
+    class PERUN_API Application
     {
     public:
         virtual ~Application() = default;
@@ -19,4 +19,4 @@ namespace perun
     std::unique_ptr<Application> CreateApplication();
 } // namespace perun
 
-#endif //_PERUNENGINE_APPLICATION_H
+#endif //_PERUN_APPLICATION_H

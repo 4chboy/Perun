@@ -1,5 +1,5 @@
-#ifndef _PERUNENGINE_PCH_H
-#define _PERUNENGINE_PCH_H
+#ifndef _PERUN_PCH_H
+#define _PERUN_PCH_H
 
 #include <fstream>
 #include <sstream>
@@ -25,4 +25,4 @@
 
 #include "Definitions.hpp"
 
-#endif //_PERUNENGINE_PCH_H
+#endif //_PERUN_PCH_H

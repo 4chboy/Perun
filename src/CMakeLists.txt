@@ -15,25 +15,10 @@ target_link_libraries(perun_engine
     Glad
 )
 
+target_compile_options(perun_engine PUBLIC "-fconcepts")
+
 if (WIN32)
     target_compile_definitions(perun_engine PUBLIC
-            -DPERUNENGINE_OS_WINDOWS
-            -DPERUNENGINE_BUILD_DLL
-            )
-elseif (APPLE)
-    target_compile_definitions(perun_engine PUBLIC
-            -DPERUNENGINE_OS_MACOSX
-            )
-elseif (IOS)
-    target_compile_definitions(perun_engine PUBLIC
-            -DPERUNENGINE_OS_IOS
-            )
-elseif (ANDROID)
-    target_compile_definitions(perun_engine PUBLIC
-            -DPERUNENGINE_OS_ANDROID
-            )
-elseif (UNIX)
-    target_compile_definitions(perun_engine PUBLIC
-            -DPERUNENGINE_OS_LINUX
+            -DPERUN_BUILD_DLL
             )
 endif ()

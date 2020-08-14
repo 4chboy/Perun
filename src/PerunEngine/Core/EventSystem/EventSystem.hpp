@@ -1,17 +1,17 @@
-#ifndef _PERUNENGINE_EVENT_SYSTEM_H
-#define _PERUNENGINE_EVENT_SYSTEM_H
+#ifndef _PERUN_EVENT_SYSTEM_H
+#define _PERUN_EVENT_SYSTEM_H
 #include "Events/Event.hpp"
 #include "EventDispatcher.hpp"
 
 namespace perun
 {
-    struct PERUNENGINE_API EventListener final
+    struct PERUN_API EventListener final
     {
         EventType eventType;
         std::function<bool(Event&)> dispatchFn;
     };
 
-    class PERUNENGINE_API EventSystem final
+    class PERUN_API EventSystem final
     {
     public:
         void SubmitEvent(Event* event)
@@ -57,4 +57,4 @@ namespace perun
     };
 } // namespace perun
 
-#endif //_PERUNENGINE_EVENT_SYSTEM_H
+#endif //_PERUN_EVENT_SYSTEM_H

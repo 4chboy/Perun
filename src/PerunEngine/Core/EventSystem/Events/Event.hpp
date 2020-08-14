@@ -1,5 +1,5 @@
-#ifndef _PERUNENGINE_EVENT_H
-#define _PERUNENGINE_EVENT_H
+#ifndef _PERUN_EVENT_H
+#define _PERUN_EVENT_H
 
 namespace perun {
 
@@ -41,7 +41,7 @@ namespace perun {
         return lhs | static_cast<size_t>(rhs);
     }
 
-    class PERUNENGINE_API Event {
+    class PERUN_API Event {
     public:
         Event() noexcept :
             handled{ false },
@@ -75,4 +75,4 @@ namespace perun {
     };
 }
 
-#endif //_PERUNENGINE_EVENT_H
+#endif //_PERUN_EVENT_H
