@@ -1,17 +1,17 @@
 #pragma once
 
 #if defined(PERUN_OS_WINDOWS)
-    #include <PerunEngine/Core/Window.hpp>
+    #include <perun/core/window.hpp>
 
 using HWND = struct HWND__*;
 
 namespace perun
 {
-    class WindowsWindow final : public Window
+    class windows_window final : public window
     {
     public:
-        WindowsWindow(WindowProps windowProps, SubmitFn submitFn);
-        ~WindowsWindow() override;
+        windows_window(window_props props, submit_fn submiter);
+        ~windows_window() override;
 
         void Update() override;
 
