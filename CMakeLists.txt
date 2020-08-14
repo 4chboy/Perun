@@ -4,6 +4,15 @@ project(perun_engine)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(PERUN_SHARED ON)
+
+if(PERUN_SHARED)
+    add_definitions("-DPERUN_SHARED_LIBRARY=1")
+    add_definitions("-DPERUN_STATIC_LIBRARY=0")
+else()
+    add_definitions("-DPERUN_SHARED_LIBRARY=0")
+    add_definitions("-DPERUN_STATIC_LIBRARY=1")
+endif()
 #
 # Organize
 #

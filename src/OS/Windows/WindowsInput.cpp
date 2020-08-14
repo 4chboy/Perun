@@ -1,21 +1,25 @@
-#include "PerunEnginePCH.hpp"
-#include "WindowsInput.hpp"
-#include <Windows.h>
+#if defined(PERUN_OS_WINDOWS)
+    #include "PerunEnginePCH.hpp"
+    #include "WindowsInput.hpp"
+    #include <Windows.h>
 
-namespace perun {
-
-    bool WindowsInput::IsKeyDown(KeyCode key) const noexcept {
+namespace perun
+{
+    bool WindowsInput::IsKeyDown(KeyCode key) const noexcept
+    {
         auto state = GetAsyncKeyState(static_cast<int>(key));
         return state < 0;
     }
 
-    bool WindowsInput::IsMouseButtonDown(MouseCode button) const noexcept {
+    bool WindowsInput::IsMouseButtonDown(MouseCode button) const noexcept
+    {
         auto state = GetAsyncKeyState(static_cast<int>(button));
         return state < 0;
     }
 
-    std::pair<float, float> WindowsInput::GetMousePos() const noexcept {
-        POINT pos = { .x = 0, .y = 0 };
+    std::pair<float, float> WindowsInput::GetMousePos() const noexcept
+    {
+        POINT pos = {.x = 0, .y = 0};
         GetCursorPos(&pos);
         return {static_cast<float>(pos.x), static_cast<float>(pos.y)};
     }
@@ -126,10 +130,12 @@ namespace perun {
     const size_t KeyCode::LeftAlt = VK_LMENU;
     const size_t KeyCode::RightAlt = VK_RMENU;
 
-    const size_t MouseCode::Undefined = 0 ;
+    const size_t MouseCode::Undefined = 0;
     const size_t MouseCode::LeftButton = VK_LBUTTON;
     const size_t MouseCode::RightButton = VK_RBUTTON;
     const size_t MouseCode::MiddleButton = VK_MBUTTON;
     const size_t MouseCode::AdditionalButton1 = VK_XBUTTON1;
     const size_t MouseCode::AdditionalButton2 = VK_XBUTTON2;
 } // namespace perun
+
+#endif

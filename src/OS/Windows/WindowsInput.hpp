@@ -1,7 +1,8 @@
 #ifndef _PERUN_WINDOWS_INPUT_H
 #define _PERUN_WINDOWS_INPUT_H
 
-#include "PerunEngine/Core/Input/Input.hpp"
+#if defined(PERUN_OS_WINDOWS)
+    #include "PerunEngine/Core/Input/Input.hpp"
 
 namespace perun
 {
@@ -17,4 +18,5 @@ namespace perun
     };
 } // namespace perun
 
+#endif
 #endif //_PERUN_WINDOWS_INPUT_H

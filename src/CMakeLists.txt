@@ -14,11 +14,3 @@ target_link_libraries(perun_engine
     glm
     Glad
 )
-
-target_compile_options(perun_engine PUBLIC "-fconcepts")
-
-if (WIN32)
-    target_compile_definitions(perun_engine PUBLIC
-            -DPERUN_BUILD_DLL
-            )
-endif ()

@@ -16,14 +16,16 @@
     #define PERUN_OS_LINUX
 #endif
 
-#if defined(PERUN_OS_WINDOWS)
-    #ifdef PERUN_BUILD_DLL
+#ifdef PERUN_OS_WINDOWS
+    #if PERUN_SHARED_LIBRARY
         #define PERUN_API __declspec(dllexport)
+    #elif PERUN_STATIC_LIBRARY
+        #define PERUN_API
     #else
         #define PERUN_API __declspec(dllimport)
     #endif
 #else
-    #define PERUN_API
+    #define PERUN_API __attribute__((__visibility__("default")))
 #endif
 
 #endif //_PERUN_DEFINITIONS_H
