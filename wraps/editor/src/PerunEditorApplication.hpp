@@ -1,8 +1,9 @@
 #include <PerunEngine/Perun.hpp>
 
-namespace perun {
-
-    class PerunEditorApplication final : public Application {
+namespace perun
+{
+    class PerunEditorApplication final : public Application
+    {
     public:
         void Start() override;
         void Run() override;
@@ -13,4 +14,4 @@ namespace perun {
         std::unique_ptr<GraphicsContext> context;
         std::unique_ptr<GraphicsAPI> api;
     };
-}
+} // namespace perun

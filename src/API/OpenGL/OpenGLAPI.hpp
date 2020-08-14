@@ -2,9 +2,10 @@
 #define _PERUNENGINE_OPENGL_API_H
 #include "PerunEngine/GFX/GraphicsAPI.hpp"
 
-namespace perun {
-
-    class PERUNENGINE_API OpenGLAPI final : public GraphicsAPI {
+namespace perun
+{
+    class PERUNENGINE_API OpenGLAPI final : public GraphicsAPI
+    {
     public:
         explicit OpenGLAPI(std::unique_ptr<GraphicsContext>& context);
         ~OpenGLAPI() override;
@@ -21,6 +22,6 @@ namespace perun {
         [[nodiscard]] uint32_t GenerateShader(const ShaderInfo& shaderInfo) const override;
         [[nodiscard]] int32_t GetUniformLocation(uint32_t programId, const std::string& uniformName) const override;
     };
-}
+} // namespace perun
 
 #endif //_PERUNENGINE_OPENGL_API_H

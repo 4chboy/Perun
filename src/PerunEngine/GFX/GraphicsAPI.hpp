@@ -5,9 +5,10 @@
 #include "TextureAtlas.hpp"
 #include "Shader.hpp"
 
-namespace perun {
-
-    class PERUNENGINE_API GraphicsAPI {
+namespace perun
+{
+    class PERUNENGINE_API GraphicsAPI
+    {
     public:
         virtual ~GraphicsAPI() = default;
 
@@ -23,18 +24,26 @@ namespace perun {
         [[nodiscard]] virtual uint32_t GenerateShader(const ShaderInfo& shaderInfo) const = 0;
         [[nodiscard]] virtual int32_t GetUniformLocation(uint32_t programId, const std::string& uniformName) const = 0;
 
-        [[nodiscard]] inline const std::string& GetVersion() const noexcept { return version; }
-        [[nodiscard]] inline GraphicsAPIType GetType() const noexcept { return context->GetType(); }
+        [[nodiscard]] inline const std::string& GetVersion() const noexcept
+        {
+            return version;
+        }
+        [[nodiscard]] inline GraphicsAPIType GetType() const noexcept
+        {
+            return context->GetType();
+        }
 
         [[nodiscard]] static std::unique_ptr<GraphicsAPI> Create(std::unique_ptr<GraphicsContext>& context);
 
     protected:
-        explicit GraphicsAPI(std::unique_ptr<GraphicsContext>& context) noexcept :
-            context{ context } { }
+        explicit GraphicsAPI(std::unique_ptr<GraphicsContext>& context) noexcept
+            : context{context}
+        {
+        }
 
         std::string version;
         std::unique_ptr<GraphicsContext>& context;
     };
-}
+} // namespace perun
 
 #endif //_PERUNENGINE_GRAPHICS_API_H
