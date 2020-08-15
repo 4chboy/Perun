@@ -21,29 +21,28 @@ namespace perun
             : code{value}
         {
         }
-        template<typename T>
-        requires std::is_convertible_v<T, size_t> explicit constexpr mouse_code(const T& value)
+        template<typename T, typename = std::enable_if_t<std::is_convertible_v<T, size_t>>>
+        explicit constexpr mouse_code(const T& value)
             : code{static_cast<size_t>(value)}
         {
         }
-        template<typename T>
-        requires std::is_convertible_v<T, size_t> constexpr operator T() const
+        template<typename T, typename = std::enable_if_t<std::is_convertible_v<size_t, T>>>
+        constexpr operator T() const
         {
             return static_cast<size_t>(code);
         }
 
-        template<typename T>
-        requires std::is_convertible_v<T, size_t> constexpr bool operator!() const
+        constexpr bool operator!() const
         {
             return code == Undefined;
         }
-        template<typename T>
-        requires std::is_convertible_v<T, size_t> constexpr bool operator==(const T& value) const
+        template<typename T, typename = std::enable_if_t<std::is_convertible_v<T, size_t>>>
+        constexpr bool operator==(const T& value) const
         {
             return code == static_cast<size_t>(value);
         }
-        template<typename T>
-        requires std::is_convertible_v<T, size_t> constexpr bool operator!=(const T& value) const
+        template<typename T, typename = std::enable_if_t<std::is_convertible_v<T, size_t>>>
+        constexpr bool operator!=(const T& value) const
         {
             return code != static_cast<size_t>(value);
         }
