@@ -19,10 +19,10 @@ def collect_sources(module_path):
     sources = sorted(sources, key=lambda p: (p.parent, p))
 
     def is_pch_header(f):
-        return f.stem.endswith('PCH')
+        return f.stem.endswith('_pch')
 
     def is_not_pch_header(f):
-        return not f.stem.endswith('PCH')
+        return not f.stem.endswith('_pch')
 
     main_sources = list(filter(is_not_pch_header, sources))
     pch_sources = list(filter(is_pch_header, sources))
