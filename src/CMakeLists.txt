@@ -2,10 +2,6 @@ include(CMakeSources.txt)
 
 add_library(perun_engine STATIC ${PERUN_SOURCES})
 
-target_compile_options(perun_engine PUBLIC
-    "-fconcepts"
-)
-
 target_include_directories(perun_engine PUBLIC
     ${CMAKE_CURRENT_LIST_DIR}
 )
