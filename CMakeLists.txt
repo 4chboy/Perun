@@ -13,13 +13,19 @@ set(PERUN_SHARED OFF)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 set_property(GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER CMake)
 
-if(PERUN_SHARED)
+if (PERUN_SHARED)
     add_definitions("-DPERUN_SHARED_LIBRARY=1")
     add_definitions("-DPERUN_STATIC_LIBRARY=0")
-else()
+else ()
     add_definitions("-DPERUN_SHARED_LIBRARY=0")
     add_definitions("-DPERUN_STATIC_LIBRARY=1")
-endif()
+endif ()
+
+if (GCC)
+    target_compile_options(perun_engine PUBLIC
+            "-fconcepts"
+            )
+endif ()
 
 #
 # Add

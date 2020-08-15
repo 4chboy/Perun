@@ -1,5 +1,4 @@
-#ifndef _PERUN_DEFINITIONS_H
-#define _PERUN_DEFINITIONS_H
+#pragma once
 
 #if defined(_WIN32) || defined(WIN32) || defined(WIN64)
     #define PERUN_OS_WINDOWS
@@ -27,5 +26,3 @@
 #else
     #define PERUN_API __attribute__((__visibility__("default")))
 #endif
-
-#endif //_PERUN_DEFINITIONS_H

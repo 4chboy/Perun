@@ -1,9 +1,13 @@
-#ifndef _PERUN_MOUSE_CODES_H
-#define _PERUN_MOUSE_CODES_H
+#pragma once
+
+#include <definitions.hpp>
+
+#include <cstddef>
+#include <type_traits>
 
 namespace perun
 {
-    class PERUN_API MouseCode final
+    class PERUN_API mouse_code final
     {
     public:
         static const size_t Undefined;
@@ -13,12 +17,12 @@ namespace perun
         static const size_t AdditionalButton1;
         static const size_t AdditionalButton2;
 
-        constexpr MouseCode(size_t value)
+        constexpr mouse_code(size_t value)
             : code{value}
         {
         }
         template<typename T>
-        requires std::is_convertible_v<T, size_t> explicit constexpr MouseCode(const T& value)
+        requires std::is_convertible_v<T, size_t> explicit constexpr mouse_code(const T& value)
             : code{static_cast<size_t>(value)}
         {
         }
@@ -48,5 +52,3 @@ namespace perun
         size_t code;
     };
 } // namespace perun
-
-#endif //_PERUN_MOUSE_CODES_H

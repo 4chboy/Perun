@@ -1,9 +1,13 @@
-#ifndef _PERUN_KEY_CODES_H
-#define _PERUN_KEY_CODES_H
+#pragma once
+
+#include <definitions.hpp>
+
+#include <cstddef>
+#include <type_traits>
 
 namespace perun
 {
-    class PERUN_API KeyCode final
+    class PERUN_API key_code final
     {
     public:
         static const size_t Undefined;
@@ -112,12 +116,12 @@ namespace perun
         static const size_t LeftAlt;
         static const size_t RightAlt;
 
-        constexpr KeyCode(size_t value)
+        constexpr key_code(size_t value)
             : code{value}
         {
         }
         template<typename T>
-        requires std::is_convertible_v<T, size_t> explicit constexpr KeyCode(const T& value)
+        requires std::is_convertible_v<T, size_t> explicit constexpr key_code(const T& value)
             : code{static_cast<size_t>(value)}
         {
         }
@@ -147,5 +151,3 @@ namespace perun
         size_t code;
     };
 } // namespace perun
-
-#endif //_PERUN_KEY_CODES_H

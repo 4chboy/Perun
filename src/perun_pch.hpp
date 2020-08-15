@@ -1,5 +1,4 @@
-#ifndef _PERUN_PCH_H
-#define _PERUN_PCH_H
+#pragma once
 
 #include <fstream>
 #include <sstream>
@@ -23,6 +22,4 @@
 
 #include <glad/gl.h>
 
-#include "Definitions.hpp"
-
-#endif //_PERUN_PCH_H
+#include <definitions.hpp>
