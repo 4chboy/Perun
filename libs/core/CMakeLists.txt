@@ -1,7 +1,7 @@
 include(CMakeSources.txt)
 
 set(PERUN_LIB_NAME perun_core)
-set(PERUN_LIB_TYPE SHARED)
+set(PERUN_LIB_TYPE STATIC)
 
 add_library(${PERUN_LIB_NAME} ${PERUN_LIB_TYPE} ${PERUN_CORE_SOURCES})
 target_include_directories(${PERUN_LIB_NAME} PUBLIC ${CMAKE_CURRENT_LIST_DIR})
