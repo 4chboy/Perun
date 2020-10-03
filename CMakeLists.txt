@@ -4,7 +4,7 @@ project(perun_engine)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(PERUN_SHARED OFF)
+set(PERUN_SHARED ON)
 
 #
 # Organize
@@ -23,8 +23,8 @@ endif ()
 
 if (GCC)
     target_compile_options(perun_engine PUBLIC
-            "-fconcepts"
-            )
+        "-fconcepts"
+    )
 endif ()
 
 #
@@ -32,4 +32,5 @@ endif ()
 #
 
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/third)
-add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/src)
+add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/libs)
+add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/examples)
