@@ -1,18 +1,29 @@
 #pragma once
 
+#define PERUN_OS_WINDOWS 0
+#define PERUN_OS_IOS 0
+#define PERUN_OS_MACOS 0
+#define PERUN_OS_ANDROID 0
+#define PERUN_OS_LINUX 0
+
 #if defined(_WIN32) || defined(WIN32) || defined(WIN64)
-    #define PERUN_OS_WINDOWS
+    #undef PERUN_OS_WINDOWS
+    #define PERUN_OS_WINDOWS 1
 #elif defined(__APPLE__) || defined(__MACH__)
     #include <TargetConditionals.h>
     #if TARGET_OS_SIMULATOR == 1 || TARGET_OS_IPHONE == 1
-        #define PERUN_OS_IOS
+        #undef PERUN_OS_IOS
+        #define PERUN_OS_IOS 1
     #elif TARGET_OS_MAC == 1
-        #define PERUN_OS_MACOS
+        #undef PERUN_OS_MACOS
+        #define PERUN_OS_MACOS 1
     #endif
 #elif defined(__ANDROID__)
-    #define PERUN_OS_ANDROID
+    #undef PERUN_OS_ANDROID
+    #define PERUN_OS_ANDROID 1
 #elif defined(__linux__)
-    #define PERUN_OS_LINUX
+    #undef PERUN_OS_LINUX
+    #define PERUN_OS_LINUX 1
 #endif
 
 #ifdef PERUN_OS_WINDOWS

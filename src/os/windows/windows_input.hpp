@@ -1,6 +1,6 @@
 #pragma once
 
-#if defined(PERUN_OS_WINDOWS)
+#if PERUN_OS_WINDOWS
     #include <perun/core/input/input.hpp>
 
 namespace perun

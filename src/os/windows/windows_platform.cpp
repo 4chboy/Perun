@@ -1,4 +1,4 @@
-#if defined(PERUN_OS_WINDOWS)
+#if PERUN_OS_WINDOWS
     #include <perun_pch.hpp>
     #include <perun/core/platform.hpp>
 
