@@ -2,8 +2,8 @@
     #include <perun_pch.hpp>
     #include <perun/core/platform.hpp>
 
-    #include <os/windows/windows_window.hpp>
-    #include <os/windows/windows_input.hpp>
+    #include <os/windows/window.hpp>
+    #include <os/windows/input.hpp>
 
 namespace perun
 {

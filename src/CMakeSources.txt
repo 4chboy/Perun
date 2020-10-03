@@ -6,12 +6,6 @@
 set(PERUN_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/definitions.hpp
 
-    ${CMAKE_CURRENT_LIST_DIR}/os/windows/windows_input.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/os/windows/windows_input.hpp
-    ${CMAKE_CURRENT_LIST_DIR}/os/windows/windows_platform.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/os/windows/windows_window.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/os/windows/windows_window.hpp
-
     ${CMAKE_CURRENT_LIST_DIR}/perun/core/application.hpp
     ${CMAKE_CURRENT_LIST_DIR}/perun/core/entry_point.hpp
     ${CMAKE_CURRENT_LIST_DIR}/perun/core/platform.hpp
@@ -28,6 +22,12 @@ set(PERUN_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/perun/core/input/input.hpp
     ${CMAKE_CURRENT_LIST_DIR}/perun/core/input/key_codes.hpp
     ${CMAKE_CURRENT_LIST_DIR}/perun/core/input/mouse_codes.hpp
+
+    ${CMAKE_CURRENT_LIST_DIR}/platform/windows/input.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/platform/windows/input.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/platform/windows/platform.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/platform/windows/window.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/platform/windows/window.hpp
 )
 
 set(PERUN_PCH

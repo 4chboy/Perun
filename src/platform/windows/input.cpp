@@ -1,6 +1,6 @@
 #if PERUN_OS_WINDOWS
     #include <perun_pch.hpp>
-    #include "windows_input.hpp"
+    #include "input.hpp"
     #include <Windows.h>
 
 namespace perun
