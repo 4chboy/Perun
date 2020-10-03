@@ -1,7 +1,7 @@
 #pragma once
 
-#include <perun/core/event_system/events/event.hpp>
-#include <perun/core/input/mouse_codes.hpp>
+#include <perun/event_system/events/event.hpp>
+#include <perun/input/mouse_codes.hpp>
 
 namespace perun
 {

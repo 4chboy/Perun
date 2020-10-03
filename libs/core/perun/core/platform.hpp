@@ -1,7 +1,7 @@
 #pragma once
 
 #include <perun/window/window.hpp>
-#include <perun/core/input/input.hpp>
+#include <perun/input/input.hpp>
 
 #include <memory>
 

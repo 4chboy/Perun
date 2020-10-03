@@ -1,9 +1,10 @@
 #pragma once
 
+#include "event.hpp"
+
 #include <perun/utils/defs.hpp>
 
-#include <perun/core/event_system/events/event.hpp>
-#include <perun/core/input/key_codes.hpp>
+#include <perun/input/key_codes.hpp>
 
 #include <cstdint>
 

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <perun/utils/defs.hpp>
-#include <perun/core/event_system/events/event.hpp>
+#include <perun/event_system/events/event.hpp>
 
 #include <cstdint>
 #include <string>

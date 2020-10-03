@@ -8,6 +8,8 @@ logger = logging.getLogger("collect_sources")
 
 modules = [
     'libs/core',
+    'libs/event_system',
+    'libs/input',
     'libs/utils',
     'libs/window',
     'examples/test'

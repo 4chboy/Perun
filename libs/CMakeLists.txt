@@ -1,3 +1,5 @@
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/core)
+add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/event_system)
+add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/input)
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/utils)
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/window)

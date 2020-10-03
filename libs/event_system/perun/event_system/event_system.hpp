@@ -1,7 +1,10 @@
 #pragma once
 
-#include <perun/core/event_system/events/event.hpp>
-#include <perun/core/event_system/event_dispatcher.hpp>
+#include <vector>
+#include <unordered_map>
+
+#include <perun/event_system/events/event.hpp>
+#include <perun/event_system/event_dispatcher.hpp>
 
 namespace perun
 {

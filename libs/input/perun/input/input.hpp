@@ -1,8 +1,8 @@
 #pragma once
 
 #include <perun/utils/defs.hpp>
-#include <perun/core/input/key_codes.hpp>
-#include <perun/core/input/mouse_codes.hpp>
+#include <perun/input/key_codes.hpp>
+#include <perun/input/mouse_codes.hpp>
 
 #include <utility>
 

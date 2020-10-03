@@ -1,6 +1,6 @@
 #pragma once
 
-#include <perun/core/event_system/events/event.hpp>
+#include <perun/event_system/events/event.hpp>
 
 #include <functional>
 
