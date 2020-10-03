@@ -8,5 +8,9 @@ set(PERUN_INPUT_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/perun/input/key_codes.hpp
     ${CMAKE_CURRENT_LIST_DIR}/perun/input/mouse_codes.hpp
 
-    ${CMAKE_CURRENT_LIST_DIR}/perun/input/internal/input.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/perun/input/internal/platform/macos/input.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/perun/input/internal/platform/macos/input.hpp
+
+    ${CMAKE_CURRENT_LIST_DIR}/perun/input/internal/platform/windows/input.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/perun/input/internal/platform/windows/input.hpp
 )

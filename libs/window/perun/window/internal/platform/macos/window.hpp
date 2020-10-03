@@ -7,11 +7,11 @@
 
 namespace perun
 {
-    class windows_window final : public window
+    class macos_window final : public window
     {
     public:
-        windows_window(window_props props, submit_fn submiter);
-        ~windows_window() override;
+        macos_window(window_props props, submit_fn submiter);
+        ~macos_window() override;
 
         void Update() override;
 

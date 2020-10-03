@@ -6,8 +6,8 @@
 set(PERUN_WINDOW_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/perun/window/window.hpp
 
-    ${CMAKE_CURRENT_LIST_DIR}/perun/window/internal/platform/mac/window.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/perun/window/internal/platform/mac/window.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/perun/window/internal/platform/macos/window.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/perun/window/internal/platform/macos/window.hpp
 
     ${CMAKE_CURRENT_LIST_DIR}/perun/window/internal/platform/windows/window.cpp
     ${CMAKE_CURRENT_LIST_DIR}/perun/window/internal/platform/windows/window.hpp

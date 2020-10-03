@@ -8,7 +8,7 @@ set(PERUN_CORE_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/perun/core/entry_point.hpp
     ${CMAKE_CURRENT_LIST_DIR}/perun/core/platform.hpp
 
-    ${CMAKE_CURRENT_LIST_DIR}/perun/core/internal/platform/windows/input.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/perun/core/internal/platform/windows/input.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/perun/core/internal/platform/macos/platform.cpp
+
     ${CMAKE_CURRENT_LIST_DIR}/perun/core/internal/platform/windows/platform.cpp
 )
