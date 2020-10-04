@@ -21,10 +21,8 @@ else ()
     add_definitions("-DPERUN_STATIC_LIBRARY=1")
 endif ()
 
-if (GCC)
-    target_compile_options(perun_engine PUBLIC
-        "-fconcepts"
-    )
+IF (GCC)
+    SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -fconcepts")
 endif ()
 
 #
