@@ -24,7 +24,6 @@ jobs:
             build_type: "Release",
             cc: "cl",
             cxx: "cl",
-            environment_script: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat",
             generators: "Visual Studio 16 2019",
             triplet: x64-windows,
             vcpkgCommitId: '8a9a97315aefb3f8bc5d81bf66ca0025938b9c91',
@@ -37,6 +36,7 @@ jobs:
             build_type: "Release",
             cc: "gcc",
             cxx: "g++",
+            generators: "Ninja",
             triplet: x64-linux,
             vcpkgCommitId: '8a9a97315aefb3f8bc5d81bf66ca0025938b9c91',
             vcpkgPackages: 'sqlite3',
@@ -48,6 +48,7 @@ jobs:
             build_type: "Release",
             cc: "clang",
             cxx: "clang++",
+            generators: "Ninja",
             triplet: x64-osx,
             vcpkgCommitId: '8a9a97315aefb3f8bc5d81bf66ca0025938b9c91',
             vcpkgPackages: 'sqlite3',
@@ -90,7 +91,7 @@ jobs:
         uses: lukka/run-cmake@v3
         id: runcmake
         with:
-          cmakeGenerator: 'Ninja'
+          cmakeGenerator: '${{ matrix.config.generators }}'
           cmakeListsOrSettingsJson: 'CMakeListsTxtBasic'
           useVcpkgToolchainFile: true
           buildWithCMakeArgs: '-- -v'
