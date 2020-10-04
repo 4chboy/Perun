@@ -87,8 +87,8 @@ jobs:
           gcc --version
       - name: Load MSVC Environment
         if: startsWith(matrix.config.os, 'windows-latest')
-        shell: cmd
-        run: '${{ matrix.config.environment_script }}'
+        shell: bash
+        run: 'cmd "${{ matrix.config.environment_script }}"'
       - name: Run Build
         uses: lukka/run-cmake@v3
         id: runcmake
