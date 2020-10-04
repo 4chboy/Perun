@@ -25,16 +25,7 @@ jobs:
             cc: "cl",
             cxx: "cl",
             environment_script: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat",
-            vcpkgCommitId: '8a9a97315aefb3f8bc5d81bf66ca0025938b9c91',
-            vcpkgPackages: 'sqlite3',
-          }
-          - {
-            name: "Windows Latest MinGW",
-            artifact: "Windows-MinGW.tar.xz",
-            os: windows-latest,
-            build_type: "Release",
-            cc: "gcc",
-            cxx: "g++",
+            triplet: x64-windows,
             vcpkgCommitId: '8a9a97315aefb3f8bc5d81bf66ca0025938b9c91',
             vcpkgPackages: 'sqlite3',
           }
@@ -45,16 +36,18 @@ jobs:
             build_type: "Release",
             cc: "gcc",
             cxx: "g++",
+            triplet: x64-linux,
             vcpkgCommitId: '8a9a97315aefb3f8bc5d81bf66ca0025938b9c91',
             vcpkgPackages: 'sqlite3',
           }
           - {
-            name: "macOS Latest Clang",
+            name: "MacOS Latest Clang",
             artifact: "macOS.tar.xz",
             os: macos-latest,
             build_type: "Release",
             cc: "clang",
             cxx: "clang++",
+            triplet: x64-osx,
             vcpkgCommitId: '8a9a97315aefb3f8bc5d81bf66ca0025938b9c91',
             vcpkgPackages: 'sqlite3',
           }
@@ -70,10 +63,10 @@ jobs:
         uses: lukka/run-vcpkg@v4
         id: runvcpkg
         with:
-          vcpkgArguments: '${{ matrix.vcpkgPackages }}'
-          vcpkgTriplet: '${{ matrix.triplet }}'
+          vcpkgArguments: '${{ matrix.config.vcpkgPackages }}'
+          vcpkgTriplet: '${{ matrix.config.triplet }}'
           vcpkgDirectory: '${{ runner.workspace }}/b/vcpkg'
-          vcpkgGitCommitId: '${{ matrix.vcpkgCommitId }}'
+          vcpkgGitCommitId: '${{ matrix.config.vcpkgCommitId }}'
       - name: dir
         shell: bash
         run: find $RUNNER_WORKSPACE
