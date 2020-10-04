@@ -10,49 +10,54 @@ on:
       - '*'
 
 jobs:
-  build:
-    name: ${{ matrix.config.name }}
-    runs-on: ${{ matrix.config.os }}
+  job:
+    name: ${{ matrix.os }}-hosted-basic
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        config:
-          - {
-            name: "Windows Latest MSVC",
-            os: windows-latest,
-            artifact: "Windows-MSVC.tar.xz",
-            build_type: "Release",
-            cc: "cl",
-            cxx: "cl",
-            environment_script: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat",
-            generators: "Visual Studio 16 2019"
-          }
-          - {
-            name: "Windows Latest MinGW",
-            os: windows-latest,
-            artifact: "Windows-MinGW.tar.xz",
-            build_type: "Release",
-            cc: "gcc",
-            cxx: "g++"
-          }
-          - {
-            name: "Ubuntu_Latest_GCC",
-            os: ubuntu-latest,
-            artifact: "Linux.tar.xz",
-            build_type: "Release",
-            cc: "gcc",
-            cxx: "g++"
-          }
-          - {
-            name: "macOS Latest Clang",
-            os: macos-latest,
-            artifact: "macOS.tar.xz",
-            build_type: "Release",
-            cc: "clang",
-            cxx: "clang++"
-          }
-      steps:
-        - uses: actions/checkout@v2
-        - name: Environment info
-          shell: bash
-          run: echo "Hello"
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        include:
+          - os: windows-latest
+            triplet: x64-windows
+            vcpkgCommitId: '8a9a97315aefb3f8bc5d81bf66ca0025938b9c91'
+            vcpkgPackages: 'sqlite3'
+          - os: ubuntu-latest
+            triplet: x64-linux
+            vcpkgCommitId: '8a9a97315aefb3f8bc5d81bf66ca0025938b9c91'
+            vcpkgPackages: 'sqlite3'
+          - os: macos-latest
+            triplet: x64-osx
+            vcpkgCommitId: '8a9a97315aefb3f8bc5d81bf66ca0025938b9c91'
+            vcpkgPackages: 'sqlite3'
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          submodules: true
+      - uses: lukka/get-cmake@latest
+      - name: dir
+        shell: bash
+        run: find $RUNNER_WORKSPACE
+      - name: Restore artifacts, or run vcpkg, build and cache artifacts
+        uses: lukka/run-vcpkg@v4
+        id: runvcpkg
+        with:
+          vcpkgArguments: '${{ matrix.vcpkgPackages }}'
+          vcpkgTriplet: '${{ matrix.triplet }}'
+          vcpkgDirectory: '${{ runner.workspace }}/b/vcpkg'
+          vcpkgGitCommitId: '${{ matrix.vcpkgCommitId }}'
+      - name: dir
+        run: find $RUNNER_WORKSPACE
+        shell: bash
+      - name: Prints outputs of run-vcpkg task
+        run: echo "'${{ steps.runvcpkg.outputs.RUNVCPKG_VCPKG_ROOT_OUT }}' '${{  steps.runvcpkg.outputs.RUNVCPKG_VCPKG_TRIPLET_OUT }}' "
+      - name: Run CMake+Ninja without triplet
+        uses: lukka/run-cmake@v3
+        id: runcmake
+        with:
+          cmakeGenerator: 'Ninja'
+          cmakeListsOrSettingsJson: 'CMakeListsTxtBasic'
+          cmakeListsTxtPath: '${{ github.workspace }}/CMakeLists.txt'
+          useVcpkgToolchainFile: true
+          buildWithCMakeArgs: '-- -v'
+          buildDirectory: '${{ runner.workspace }}/build/'
