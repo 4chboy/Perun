@@ -21,7 +21,6 @@ jobs:
             name: "Windows Latest MSVC",
             artifact: "Windows-MSVC.tar.xz",
             os: windows-latest,
-            build_type: "Release",
             cc: "cl",
             cxx: "cl",
             generators: "Visual Studio 16 2019",
@@ -34,7 +33,6 @@ jobs:
             name: "Ubuntu Latest GCC",
             artifact: "Linux.tar.xz",
             os: ubuntu-latest,
-            build_type: "Release",
             cc: "gcc",
             cxx: "g++",
             generators: "Ninja",
@@ -46,7 +44,6 @@ jobs:
             name: "MacOS Latest Clang",
             artifact: "macOS.tar.xz",
             os: macos-latest,
-            build_type: "Release",
             cc: "clang",
             cxx: "clang++",
             generators: "Ninja",
@@ -91,7 +88,7 @@ jobs:
       - name: Load MSVC Environment
         if: startsWith(matrix.config.os, 'windows-latest')
         shell: cmd
-        run: ${{ matrix.config.environment_script }}
+        run: "${{ matrix.config.environment_script }}"
       - name: Run Build
         uses: lukka/run-cmake@v3
         id: runcmake
