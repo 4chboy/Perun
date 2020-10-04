@@ -18,34 +18,37 @@ jobs:
       matrix:
         config:
           - {
-            name: "Windows Latest MSVC",
-            artifact: "Windows-MSVC.tar.xz",
+            name: 'Windows Latest MSVC',
+            artifact: 'Windows-MSVC.tar.xz',
             os: windows-latest,
-            cc: "cl",
-            cxx: "cl",
-            generators: "VS16Win64",
+            cc: 'cl',
+            cxx: 'cl',
+            generators: 'VS16Win64',
+            cmakeArgs: '-- -v:quiet',
             triplet: x64-windows,
             vcpkgCommitId: '8a9a97315aefb3f8bc5d81bf66ca0025938b9c91',
             vcpkgPackages: 'sqlite3',
           }
           - {
-            name: "Ubuntu Latest GCC",
-            artifact: "Linux.tar.xz",
+            name: 'Ubuntu Latest GCC',
+            artifact: 'Linux.tar.xz',
             os: ubuntu-latest,
-            cc: "gcc",
-            cxx: "g++",
-            generators: "Ninja",
+            cc: 'gcc',
+            cxx: 'g++',
+            generators: 'Ninja',
+            cmakeArgs: '-- -v',
             triplet: x64-linux,
             vcpkgCommitId: '8a9a97315aefb3f8bc5d81bf66ca0025938b9c91',
             vcpkgPackages: 'sqlite3',
           }
           - {
-            name: "MacOS Latest Clang",
-            artifact: "macOS.tar.xz",
+            name: 'MacOS Latest Clang',
+            artifact: 'macOS.tar.xz',
             os: macos-latest,
-            cc: "clang",
-            cxx: "clang++",
-            generators: "Ninja",
+            cc: 'clang',
+            cxx: 'clang++',
+            generators: 'Ninja',
+            cmakeArgs: '-- -v',
             triplet: x64-osx,
             vcpkgCommitId: '8a9a97315aefb3f8bc5d81bf66ca0025938b9c91',
             vcpkgPackages: 'sqlite3',
@@ -91,5 +94,5 @@ jobs:
           cmakeGenerator: '${{ matrix.config.generators }}'
           cmakeListsOrSettingsJson: 'CMakeListsTxtBasic'
           useVcpkgToolchainFile: true
-          buildWithCMakeArgs: '-- -v'
+          buildWithCMakeArgs: '${{ matrix.config.cmakeArgs }}'
           buildDirectory: '${{ runner.workspace }}/build/'
