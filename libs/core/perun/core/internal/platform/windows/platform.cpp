@@ -1,8 +1,8 @@
 #include <perun/core/platform.hpp>
 
 #if PERUN_OS_WINDOWS
-    #include <os/windows/window.hpp>
-    #include <os/windows/input.hpp>
+    #include <perun/window/internal/platform/windows/window.hpp>
+    #include <perun/input/internal/platform/windows/input.hpp>
 
 namespace perun
 {

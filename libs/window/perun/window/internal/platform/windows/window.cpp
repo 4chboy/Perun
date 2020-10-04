@@ -16,9 +16,9 @@
         #define PERUN_WINDOWS_STR(str) str
     #endif
 
-    #include <perun/core/event_system/events/keyboard_events.hpp>
-    #include <perun/core/event_system/events/mouse_events.hpp>
-    #include <perun/core/event_system/events/window_events.hpp>
+    #include <perun/event_system/events/keyboard_events.hpp>
+    #include <perun/event_system/events/mouse_events.hpp>
+    #include <perun/event_system/events/window_events.hpp>
 
     #ifndef WM_MOUSEHWHEEL
         #define WM_MOUSEHWHEEL 0x020E
