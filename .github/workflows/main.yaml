@@ -11,7 +11,7 @@ on:
 
 jobs:
   job:
-    name: ${{ matrix.os }}-hosted-basic
+    name: ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -65,6 +65,7 @@ jobs:
           echo gcc version after
           gcc --version
       - name: Run CMake+Ninja without triplet
+        if: false
         uses: lukka/run-cmake@v3
         id: runcmake
         with:
@@ -73,3 +74,14 @@ jobs:
           useVcpkgToolchainFile: true
           buildWithCMakeArgs: '-- -v'
           buildDirectory: '${{ runner.workspace }}/build/'
+      - name: Run CMake+Ninja with triplet (bash)
+        uses: lukka/run-cmake@v3
+        id: runcmake_bash
+        with:
+          cmakeGenerator: 'Ninja'
+          cmakeListsOrSettingsJson: 'CMakeListsTxtBasic'
+          useVcpkgToolchainFile: true
+          buildWithCMakeArgs: '-- -v'
+          vcpkgTriplet: ${{ steps.runvcpkg.outputs.RUNVCPKG_VCPKG_TRIPLET_OUT }}
+          buildDirectory: '${{ runner.workspace }}/b/ninja-bash/'
+          useShell: bash
