@@ -55,6 +55,4 @@ jobs:
         - uses: actions/checkout@v2
         - name: Environment info
           shell: cmake -P {0}
-            run: |
-              echo github.event.action: ${{ github.event.action }}
-              echo github.event_name: ${{ github.event_name }}
+            run: echo github.event.action: ${{ github.event.action }}
