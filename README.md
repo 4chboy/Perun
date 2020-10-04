@@ -1,0 +1,1 @@
+[![Build](https://github.com/4chboy/Perun/workflows/Build/badge.svg?branch=master)](https://github.com/4chboy/Perun/actions)

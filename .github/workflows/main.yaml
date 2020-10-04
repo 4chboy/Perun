@@ -64,8 +64,7 @@ jobs:
           sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 90 --slave /usr/bin/g++ g++ /usr/bin/g++-10 --slave /usr/bin/gcov gcov /usr/bin/gcov-10
           echo gcc version after
           gcc --version
-      - name: Run CMake+Ninja without triplet
-        if: false
+      - name: Run CMake+Ninja
         uses: lukka/run-cmake@v3
         id: runcmake
         with:
@@ -74,14 +73,3 @@ jobs:
           useVcpkgToolchainFile: true
           buildWithCMakeArgs: '-- -v'
           buildDirectory: '${{ runner.workspace }}/build/'
-      - name: Run CMake+Ninja with triplet (bash)
-        uses: lukka/run-cmake@v3
-        id: runcmake_bash
-        with:
-          cmakeGenerator: 'Ninja'
-          cmakeListsOrSettingsJson: 'CMakeListsTxtBasic'
-          useVcpkgToolchainFile: true
-          buildWithCMakeArgs: '-- -v'
-          vcpkgTriplet: ${{ steps.runvcpkg.outputs.RUNVCPKG_VCPKG_TRIPLET_OUT }}
-          buildDirectory: '${{ runner.workspace }}/b/ninja-bash/'
-          useShell: bash
