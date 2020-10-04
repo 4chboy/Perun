@@ -93,7 +93,7 @@ jobs:
         uses: lukka/run-cmake@v3
         id: runcmake
         with:
-          cmakeGenerator: '${{ matrix.config.generators }}'
+          cmakeGenerator: '"${{ matrix.config.generators }}"'
           cmakeListsOrSettingsJson: 'CMakeListsTxtBasic'
           useVcpkgToolchainFile: true
           buildWithCMakeArgs: '-- -v'
