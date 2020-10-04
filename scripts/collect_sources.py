@@ -7,7 +7,12 @@ from pathlib import Path
 logger = logging.getLogger("collect_sources")
 
 modules = [
-    'src/'
+    'libs/core',
+    'libs/event_system',
+    'libs/input',
+    'libs/utils',
+    'libs/window',
+    'examples/test'
 ]
 
 
@@ -44,7 +49,7 @@ def write_cmake_source_files(module_name, module_path, main_sources, pch_sources
 
         f.write(')\n')
 
-    main_variable_name = f'PERUN_SOURCES'
+    main_variable_name = f'PERUN_{module_name.upper()}_SOURCES'
     pch_variable_name = f'PERUN_PCH'
     output_cmake_sources_file_path = module_path / 'CMakeSources.txt'
 
