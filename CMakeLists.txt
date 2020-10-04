@@ -23,8 +23,6 @@ endif ()
 
 IF (GCC)
     SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -fconcepts")
-elseif (MSVC)
-    SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} /Zc:auto-")
 endif ()
 
 #
