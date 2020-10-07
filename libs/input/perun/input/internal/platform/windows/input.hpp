@@ -3,7 +3,7 @@
 #include <perun/utils/defs.hpp>
 
 #if PERUN_OS_WINDOWS
-    #include <perun/core/input/input.hpp>
+    #include <perun/input/input.hpp>
 
 namespace perun
 {

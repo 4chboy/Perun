@@ -10,20 +10,20 @@ namespace perun
     {
     public:
         explicit event_dispatcher(event& event_to_dispatch) noexcept
-            : event{event_to_dispatch}
+            : m_event{event_to_dispatch}
         {
         }
 
         [[nodiscard]] bool dispatch(const std::function<bool(event&)>& dispatcher, event_type type) noexcept
         {
-            if (event.get_type() == type) {
-                event.handled = dispatcher(event);
+            if (m_event.get_type() == type) {
+                m_event.handled = dispatcher(m_event);
                 return true;
             }
             return false;
         }
 
     private:
-        event& event;
+        event& m_event;
     };
 } // namespace perun

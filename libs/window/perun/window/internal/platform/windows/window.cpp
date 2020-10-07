@@ -16,9 +16,9 @@
         #define PERUN_WINDOWS_STR(str) str
     #endif
 
-    #include <perun/core/event_system/events/keyboard_events.hpp>
-    #include <perun/core/event_system/events/mouse_events.hpp>
-    #include <perun/core/event_system/events/window_events.hpp>
+    #include <perun/event_system/events/keyboard_events.hpp>
+    #include <perun/event_system/events/mouse_events.hpp>
+    #include <perun/event_system/events/window_events.hpp>
 
     #ifndef WM_MOUSEHWHEEL
         #define WM_MOUSEHWHEEL 0x020E
@@ -28,22 +28,22 @@ namespace perun
 {
     namespace details
     {
-        static LRESULT key_down_callback(auto& core, WPARAM w_param, LPARAM l_param);
-        static LRESULT key_up_callback(auto& core, WPARAM w_param, LPARAM l_param);
-        static LRESULT key_char_callback(auto& core, WPARAM w_param, LPARAM l_param);
-        static LRESULT mouse_button_down_callback(auto& core, mouse_code button);
-        static LRESULT mouse_button_up_callback(auto& core, mouse_code button);
-        static LRESULT mouse_button_double_clicked_callback(auto& core, mouse_code button);
-        static LRESULT mouse_move_callback(auto& core, LPARAM l_param);
-        static LRESULT mouse_scroll_callback(auto& core, WPARAM w_param);
-        static LRESULT mouse_horizontal_scroll_callback(auto& core, WPARAM w_param);
-        static LRESULT window_move_callback(auto& core, LPARAM l_param);
-        static LRESULT window_size_callback(auto& core, LPARAM l_param);
-        static LRESULT window_focus_callback(auto& core, WPARAM w_param);
-        static LRESULT window_create_callback(auto& core);
-        static LRESULT window_destroy_callback(auto& core);
-        static LRESULT window_minimize_callback(auto& core);
-        static LRESULT window_maximize_callback(auto& core);
+        static LRESULT key_down_callback(window::window_core& core, WPARAM w_param, LPARAM l_param);
+        static LRESULT key_up_callback(window::window_core& core, WPARAM w_param, LPARAM l_param);
+        static LRESULT key_char_callback(window::window_core& core, WPARAM w_param, LPARAM l_param);
+        static LRESULT mouse_button_down_callback(window::window_core& core, mouse_code button);
+        static LRESULT mouse_button_up_callback(window::window_core& core, mouse_code button);
+        static LRESULT mouse_button_double_clicked_callback(window::window_core& core, mouse_code button);
+        static LRESULT mouse_move_callback(window::window_core& core, LPARAM l_param);
+        static LRESULT mouse_scroll_callback(window::window_core& core, WPARAM w_param);
+        static LRESULT mouse_horizontal_scroll_callback(window::window_core& core, WPARAM w_param);
+        static LRESULT window_move_callback(window::window_core& core, LPARAM l_param);
+        static LRESULT window_size_callback(window::window_core& core, LPARAM l_param);
+        static LRESULT window_focus_callback(window::window_core& core, WPARAM w_param);
+        static LRESULT window_create_callback(window::window_core& core);
+        static LRESULT window_destroy_callback(window::window_core& core);
+        static LRESULT window_minimize_callback(window::window_core& core);
+        static LRESULT window_maximize_callback(window::window_core& core);
     } // namespace details
 
     LRESULT CALLBACK perun_wnd_proc(HWND wnd, UINT msg, WPARAM w_param, LPARAM l_param)
@@ -224,14 +224,14 @@ namespace perun
             int32_t data;
         };
 
-        LRESULT key_down_callback(auto& core, WPARAM w_param, LPARAM l_param)
+        LRESULT key_down_callback(window::window_core& core, WPARAM w_param, LPARAM l_param)
         {
             key_data data{.data = static_cast<int32_t>(l_param)};
             core.submit(new key_pressed_event{static_cast<key_code>(w_param), static_cast<uint32_t>(data.repeat_count)});
             return 0;
         }
 
-        LRESULT key_up_callback(auto& core, WPARAM w_param, LPARAM l_param)
+        LRESULT key_up_callback(window::window_core& core, WPARAM w_param, LPARAM l_param)
         {
             (void) l_param; // could be used to create keyData
 
@@ -239,7 +239,7 @@ namespace perun
             return 0;
         }
 
-        LRESULT key_char_callback(auto& core, WPARAM w_param, LPARAM l_param)
+        LRESULT key_char_callback(window::window_core& core, WPARAM w_param, LPARAM l_param)
         {
             (void) l_param; // could be used to create keyData
 
@@ -248,25 +248,25 @@ namespace perun
             return 0;
         }
 
-        LRESULT mouse_button_down_callback(auto& core, mouse_code button)
+        LRESULT mouse_button_down_callback(window::window_core& core, mouse_code button)
         {
             core.submit(new mouse_button_pressed_event{button});
             return 0;
         }
 
-        LRESULT mouse_button_up_callback(auto& core, mouse_code button)
+        LRESULT mouse_button_up_callback(window::window_core& core, mouse_code button)
         {
             core.submit(new mouse_button_released_event{button});
             return 0;
         }
 
-        LRESULT mouse_button_double_clicked_callback(auto& core, mouse_code button)
+        LRESULT mouse_button_double_clicked_callback(window::window_core& core, mouse_code button)
         {
             core.submit(new mouse_button_double_clicked_event{button});
             return 0;
         }
 
-        LRESULT mouse_move_callback(auto& core, LPARAM l_param)
+        LRESULT mouse_move_callback(window::window_core& core, LPARAM l_param)
         {
             float x = GET_X_LPARAM(l_param);
             float y = GET_Y_LPARAM(l_param);
@@ -274,21 +274,21 @@ namespace perun
             return 0;
         }
 
-        LRESULT mouse_scroll_callback(auto& core, WPARAM w_param)
+        LRESULT mouse_scroll_callback(window::window_core& core, WPARAM w_param)
         {
             auto delta = static_cast<float>(GET_WHEEL_DELTA_WPARAM(w_param)) / static_cast<float>(WHEEL_DELTA);
             core.submit(new mouse_scrolled_event{0.0f, delta});
             return 0;
         }
 
-        LRESULT mouse_horizontal_scroll_callback(auto& core, WPARAM w_param)
+        LRESULT mouse_horizontal_scroll_callback(window::window_core& core, WPARAM w_param)
         {
             auto delta = static_cast<float>(GET_WHEEL_DELTA_WPARAM(w_param)) / static_cast<float>(WHEEL_DELTA);
             core.submit(new mouse_scrolled_event{delta, 0.0f});
             return 0;
         }
 
-        LRESULT window_move_callback(auto& core, LPARAM l_param)
+        LRESULT window_move_callback(window::window_core& core, LPARAM l_param)
         {
             int32_t x = LOWORD(l_param);
             int32_t y = HIWORD(l_param);
@@ -296,7 +296,7 @@ namespace perun
             return 0;
         }
 
-        LRESULT window_size_callback(auto& core, LPARAM l_param)
+        LRESULT window_size_callback(window::window_core& core, LPARAM l_param)
         {
             int32_t width = LOWORD(l_param);
             int32_t height = HIWORD(l_param);
@@ -304,7 +304,7 @@ namespace perun
             return 0;
         }
 
-        LRESULT window_focus_callback(auto& core, WPARAM w_param)
+        LRESULT window_focus_callback(window::window_core& core, WPARAM w_param)
         {
             switch (w_param) {
                 case WA_ACTIVE:
@@ -322,25 +322,25 @@ namespace perun
             }
         }
 
-        LRESULT window_create_callback(auto& core)
+        LRESULT window_create_callback(window::window_core& core)
         {
             core.submit(new window_created_event{});
             return 0;
         }
 
-        LRESULT window_destroy_callback(auto& core)
+        LRESULT window_destroy_callback(window::window_core& core)
         {
             core.submit(new window_closed_event{});
             return 0;
         }
 
-        LRESULT window_minimize_callback(auto& core)
+        LRESULT window_minimize_callback(window::window_core& core)
         {
             core.submit(new window_minimized_event{});
             return 0;
         }
 
-        LRESULT window_maximize_callback(auto& core)
+        LRESULT window_maximize_callback(window::window_core& core)
         {
             core.submit(new window_maximized_event{});
             return 0;
